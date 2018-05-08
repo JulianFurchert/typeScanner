@@ -1,0 +1,18 @@
+.App {
+  position: relative;
+  width: 100%;
+}
+
+.App-menu{
+  position: fixed;
+  width: 248px;
+  height: 100%;
+}
+
+.App-main {
+  position: relative;
+  width: calc(100% - 248px);
+  height: 100%;
+  margin-left: 248px;
+  display: flex;
+}
