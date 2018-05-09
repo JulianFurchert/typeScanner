@@ -13,6 +13,10 @@ class Letter extends Component {
   }
 
   componentDidMount(){
+    this.initSnap();
+  }
+
+  initSnap(){
     let s = Snap(this.letter.current);
     let polygon = [];
 
@@ -38,6 +42,7 @@ class Letter extends Component {
       let y = this.toFixed(val.y, 2);
       string = string.concat(x + ", " + y + ", ");
     })
+    string = string.slice(0, -2);
     return string;
   }
 
@@ -48,8 +53,10 @@ class Letter extends Component {
 
   render(){
     return(
-      <svg onClick={this.handleClick} ref={this.letter}  className="Letter" >
-      </svg>
+      <svg
+        onClick={ () => {this.props.selectLetter(this.props.letter)} }
+        ref={ this.letter }  className="Letter"
+      />
     )
   }
 }

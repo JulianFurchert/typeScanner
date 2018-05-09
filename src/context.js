@@ -7,8 +7,8 @@ export class Provider extends Component {
   state = {
     initialAlphabet: alphabet,
     alphabet: alphabet,
-    selectedLetter: "a",
-    selectedGrid: "a",
+    selectedLetter: "A",
+    selectedGrid: "A",
     grid: {
       zoom: 1,
       xPosition: 0,

@@ -1,41 +1,27 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
 import Alphabet from './Alphabet';
 import SelectedLetter from './SelectedLetter';
 import './App.css';
 
-const Context = React.createContext();
-
-class Provider extends Component {
-  state = {
-    chiefExecutive: 'Charlie Waite',
-  }
-
-  render() {
-    return (
-      <Context.Provider
-        value={this.state}>
-        {this.props.children}
-      </Context.Provider>
-    );
-  }
-}
+import { Consumer } from "../context";
 
 class App extends Component {
   render() {
     return (
-      <Provider>
-        <div className="App">
-          <div className= "App-menu">
-            <Menu />
+      <Consumer>
+        {({ selectedLetter, alphabet }) => (
+          <div className="App">
+            <div className= "App-main">
+              <SelectedLetter
+                letter={selectedLetter}
+                letterJson={alphabet[selectedLetter]}
+              />
+              <Alphabet />
+            </div>
           </div>
-          <div className= "App-main">
-            <SelectedLetter />
-            <Alphabet />
-          </div>
-        </div>
-      </Provider>
-    );
+        )}
+      </Consumer>
+    )
   }
 }
 
