@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Snap from 'snapsvg-cjs';
+import RenderLetter from '../hoc/RenderLetter';
 import './Letter.css';
 
 class Letter extends Component {
@@ -13,42 +13,7 @@ class Letter extends Component {
   }
 
   componentDidMount(){
-    this.initSnap();
-  }
-
-  initSnap(){
-    let s = Snap(this.letter.current);
-    let polygon = [];
-
-    this.props.letterJson.forEach( path => {
-      let letterPoints = this.arrayToString(path)
-      polygon.push(s.polyline(letterPoints));
-    });
-
-    s.attr({
-      viewBox: "0 0 1100 1000",
-      fill: "black",
-      fillOpacity: "0",
-      stroke: "black",
-      strokeWidth: 60,
-      strokeLinejoin: "round"
-    });
-  }
-
-  arrayToString(arr){
-    let string = "";
-    arr.forEach( val => {
-      let x = this.toFixed(val.x, 2);
-      let y = this.toFixed(val.y, 2);
-      string = string.concat(x + ", " + y + ", ");
-    })
-    string = string.slice(0, -2);
-    return string;
-  }
-
-  toFixed(value, precision) {
-    var power = Math.pow(10, precision || 0);
-    return String(Math.round(value * power) / power);
+    this.props.initLetter(this.letter.current);
   }
 
   render(){
@@ -61,4 +26,4 @@ class Letter extends Component {
   }
 }
 
-export default Letter;
+export default RenderLetter(Letter);

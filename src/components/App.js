@@ -12,10 +12,7 @@ class App extends Component {
         {({ selectedLetter, alphabet }) => (
           <div className="App">
             <div className= "App-main">
-              <SelectedLetter
-                letter={selectedLetter}
-                letterJson={alphabet[selectedLetter]}
-              />
+              <SelectedLetter letter={selectedLetter} letterJson={alphabet[selectedLetter]} />
               <Alphabet />
               <div className="App-menu" />
             </div>
