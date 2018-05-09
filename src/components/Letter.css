@@ -1,5 +1,11 @@
 .Letter {
   width: 72px;
   height: 72px;
-  border: 1px solid #E4E4E4;
+  border: 0.5px solid #191919;
+
+}
+
+.Letter:hover {
+  background-color: #E4E4E4;
+  cursor: pointer;
 }

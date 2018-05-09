@@ -8,8 +8,8 @@ export class Provider extends Component {
     initialAlphabet: alphabet,
     alphabet: alphabet,
     selectedLetter: "A",
-    selectedGrid: "A",
-    grid: {
+    grid: "A",
+    gridSetting: {
       zoom: 1,
       xPosition: 0,
       yPosition: 0

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
-import './Letter.css'
+import './Letter.css';
 
 class Letter extends Component {
   constructor(props) {

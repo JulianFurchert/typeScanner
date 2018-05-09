@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
+import Grid from './Grid';
 import './SelectedLetter.css'
+
+import { Consumer } from "../context";
+
 
 class SelectedLetter extends Component{
 
@@ -63,9 +67,12 @@ class SelectedLetter extends Component{
 
   render(){
     return(
-      <svg onClick={this.handleClick} ref={this.letter} className="SelectedLetter" >
-
-      </svg>
+      <div className="SelectedLetter-container">
+        <svg onClick={this.handleClick} ref={this.letter} className="SelectedLetter" />
+        <Consumer>
+          { ({ grid, gridSetting }) => <Grid grid={grid} gridSetting={gridSetting} /> }
+        </Consumer>
+      </div>
     )
   }
 }

@@ -17,6 +17,7 @@ class App extends Component {
                 letterJson={alphabet[selectedLetter]}
               />
               <Alphabet />
+              <div className="App-menu" />
             </div>
           </div>
         )}
