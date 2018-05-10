@@ -24,7 +24,7 @@ class SelectedLetter extends Component{
       <div className="SelectedLetter-container">
         <svg onClick={this.handleClick} ref={this.letter} className="SelectedLetter" />
         <Consumer>
-          { ({ grids, grid, gridSetting }) => <Grid grids={grids} grid={grid} gridSetting={gridSetting} /> }
+          { ({ gridsSvg, grid, gridSetting }) => <Grid gridsSvg={gridsSvg} grid={grid} gridSetting={gridSetting} /> }
         </Consumer>
       </div>
     )

@@ -11,6 +11,7 @@ class Grid extends Component {
   render(){
     return(
       <div className="Grid-container">
+        <img src={this.props.gridsSvg["gi-dt-003"]} />
       </div>
     )
   }

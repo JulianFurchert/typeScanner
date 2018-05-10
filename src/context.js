@@ -1,14 +1,7 @@
 import React, {Component} from "react";
 import alphabet from "./data/alphabet.json"
-
-function importAll(r) {
-  let files = {};
-  r.keys().map((item, index) => { files[item.replace('./', '')] = r(item); });
-  return files;
-}
-
-const gridsSvg = importAll(require.context('./data/svg-daten/', true, /\.svg$/));
-const gridsJson = importAll(require.context('./data/svg-daten/', true, /\.svg$/));
+import gridsJson from "./data/grids-json";
+import gridsSvg from "./data/grids-svg";
 
 const Context = React.createContext();
 export class Provider extends Component {
@@ -17,8 +10,8 @@ export class Provider extends Component {
     alphabet: alphabet,
     selectedLetter: "A",
     grid: "A",
-    gridsSvg: gridsSvg,
     gridsJson: gridsJson,
+    gridsSvg: gridsSvg,
     gridSetting: {
       zoom: 1,
       xPosition: 0,
