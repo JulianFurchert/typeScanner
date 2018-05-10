@@ -7,6 +7,7 @@ const RenderLetter = ( WrappedComponent ) => {
     constructor(props) {
       super(props);
       this.initLetter = this.initLetter.bind(this);
+      this.updateLetter = this.updateLetter.bind(this);
     }
 
     componentWillReceiveProps(newProps){
@@ -19,6 +20,16 @@ const RenderLetter = ( WrappedComponent ) => {
           this.polygon.push(this.snap.polyline(letterPoints));
         });
       }
+    }
+
+    updateLetter(letterJson){
+      this.polygon.forEach( path => {
+        path.remove();
+      })
+      letterJson.forEach( path => {
+        let letterPoints = this.arrayToString(path)
+        this.polygon.push(this.snap.polyline(letterPoints));
+      });
     }
 
     initLetter(element){
@@ -57,7 +68,7 @@ const RenderLetter = ( WrappedComponent ) => {
     }
 
     render(){
-      return <WrappedComponent {...this.props} initLetter={this.initLetter} />
+      return <WrappedComponent {...this.props} initLetter={this.initLetter} updateLetter={this.updateLetter}/>
     }
   }
 }

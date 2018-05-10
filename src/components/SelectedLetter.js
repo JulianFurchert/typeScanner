@@ -16,8 +16,11 @@ class SelectedLetter extends Component{
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
-    typeScanner(this.props.letterJson, this.props.gridJson)
+    let newLetterJson = typeScanner(this.props.letterJson, this.props.gridJson)
+    this.props.updateLetter(newLetterJson);
   }
+
+
 
   render(){
     return(
