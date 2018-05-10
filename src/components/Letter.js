@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import RenderLetter from '../hoc/RenderLetter';
+import RenderLetter from './RenderLetter';
 import './Letter.css';
 
 class Letter extends Component {
   constructor(props) {
     super(props);
-    this.letter = React.createRef();
+    this.svg = React.createRef();
   }
 
   shouldComponentUpdate(){
@@ -13,14 +13,14 @@ class Letter extends Component {
   }
 
   componentDidMount(){
-    this.props.initLetter(this.letter.current);
+    this.props.initLetter(this.svg.current);
   }
 
   render(){
     return(
       <svg
         onClick={ () => {this.props.selectLetter(this.props.letter)} }
-        ref={ this.letter }  className="Letter"
+        ref={ this.svg }  className="Letter"
       />
     )
   }

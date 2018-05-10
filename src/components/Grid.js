@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
-// import Snap from 'snapsvg-cjs';
+import Snap from 'snapsvg-cjs';
 import './Grid.css';
 
 class Grid extends Component {
 
+  constructor(props) {
+    super(props);
+    this.svg = React.createRef();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  shouldComponentUpdate(){
+    return false;
+  }
+
   componentDidMount(){
-    console.log(this.props.gridsSvg);
+    this.initGrid(this.svg.current);
+  }
+
+  initGrid(element){
+    this.snap = Snap(element);
+    this.grid = this.snap.group();
+
+    Snap.load(this.props.gridSvg, (data) =>{
+      this.grid.append( data );
+    });
+
+    //this.grid.transform("s8 0 0");
+  }
+
+  handleClick(){
   }
 
   render(){
     return(
-      <div className="Grid-container">
-        <img src={this.props.gridsSvg["gi-dt-003"]} />
-      </div>
+      <svg onClick={this.handleClick} ref={this.svg} className="Grid"  />
     )
   }
 }

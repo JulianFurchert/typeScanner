@@ -9,7 +9,7 @@ export class Provider extends Component {
     initialAlphabet: alphabet,
     alphabet: alphabet,
     selectedLetter: "A",
-    grid: "A",
+    grid: "gi-dt-001",
     gridsJson: gridsJson,
     gridsSvg: gridsSvg,
     gridSetting: {
