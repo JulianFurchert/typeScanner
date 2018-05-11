@@ -21,12 +21,24 @@ class Grid extends Component {
   initGrid(element){
     this.snap = Snap(element);
     this.grid = this.snap.group();
+    this.snap.attr({
+      viewBox: "0 0 1100 1400"
+    })
 
     Snap.load(this.props.gridSvg, (data) =>{
-      this.grid.append( data );
+      data.select("svg").attr({
+        viewBox: "",
+        baseProfile: "",
+        version: "",
+        id:"",
+        xmlns: "",
+        "xmlns:xlink": "",
+        "xml:space" : ""
+      });
+      this.grid.append( data.select("svg") );
     });
 
-    //this.grid.transform("s8 0 0");
+    this.grid.transform("s2 ,2");
   }
 
   handleClick(){

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Alphabet from './Alphabet';
 import SelectedLetter from './SelectedLetter';
+import Slider from './Slider';
 import './App.css';
 
 import { Consumer } from "../context";
@@ -13,6 +14,7 @@ class App extends Component {
           <div className="App">
             <div className= "App-main">
               <SelectedLetter
+                viewbox={"0 0 1100 1400"}
                 letter={selectedLetter}
                 letterJson={alphabet[selectedLetter]}
                 grid={grid}
@@ -21,7 +23,8 @@ class App extends Component {
                 gridSetting={gridSetting}
               />
               <Alphabet />
-              <div className="App-menu" />
+              <div className="App-menu">
+              </div>
             </div>
           </div>
         )}

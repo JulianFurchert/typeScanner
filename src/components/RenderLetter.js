@@ -42,11 +42,11 @@ const RenderLetter = ( WrappedComponent ) => {
       });
 
       this.snap.attr({
-        viewBox: "0 0 1100 1000",
+        viewBox: this.props.viewbox,
         fill: "black",
         fillOpacity: "0",
         stroke: "black",
-        strokeWidth: 60,
+        strokeWidth: 2,
         strokeLinejoin: "round"
       })
     }

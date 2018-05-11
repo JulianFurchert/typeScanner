@@ -1,8 +1,9 @@
-import { findClosestIndex } from 'find-closest';
+
 let lastIndex;
 
-const typeScan = (letterPoints, gridPoints) => {
+const typeScan = (letterPoints, gridPoints, settings) => {
   let newLetterPoints = [];
+  gridPoints = transformGridPoints(gridPoints, settings);
 
   letterPoints.forEach( path => {
     let newPath = [];
@@ -17,9 +18,17 @@ const typeScan = (letterPoints, gridPoints) => {
 
   return newLetterPoints
 }
-
 export default typeScan;
 
+
+const transformGridPoints = (gridPoints, settings) =>{
+  let baseScale = 2;
+  gridPoints.forEach( (point, index, points) =>{
+    points[index].x = point.x * 2;
+    points[index].y = point.y * 2;
+  });
+  return gridPoints;
+}
 
 const getClosestPoint = (point, gridPoints) => {
   let distances = [];
@@ -44,6 +53,19 @@ const getClosestLink = (point, gridPoints) => {
   let linkIndex = findClosestIndex(distances, 0);
   lastIndex = links[linkIndex];
   return gridPoints[lastIndex];
+}
+
+
+const findClosestIndex = (distances, value) => {
+  let closestIndex;
+  let closestDist;
+  distances.forEach( (distance, index)  => {
+    if( !closestDist || closestDist > distance){
+      closestIndex = index;
+      closestDist = distance;
+    }
+  });
+  return closestIndex;
 }
 
 
