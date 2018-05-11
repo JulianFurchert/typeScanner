@@ -6,14 +6,13 @@ const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 class Alphabet extends Component{
 
   renderLetters(alphabet, selectLetter){
-    return letters.map( (letter,index) => {
+    return letters.map( (lettername,index) => {
       return (
         <Letter
           key={index}
           viewbox={"0 0 1100 1000"}
-          selectLetter={selectLetter}
-          letter={letter}
-          letterJson={alphabet[letter]}
+          letterName={lettername}
+          letter={alphabet[lettername]}
         />
       )
     });

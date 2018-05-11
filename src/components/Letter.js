@@ -3,23 +3,14 @@ import RenderLetter from './RenderLetter';
 import './Letter.css';
 
 class Letter extends Component {
-  constructor(props) {
-    super(props);
-    this.svg = React.createRef();
-  }
-
-  shouldComponentUpdate(){
-    return false;
-  }
+  svg = React.createRef();
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
   }
 
   render(){
-    return(
-      <svg ref={ this.svg }  className="Letter"/>
-    )
+    return <svg ref={this.svg}  className="Letter"/>
   }
 }
 

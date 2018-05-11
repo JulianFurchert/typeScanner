@@ -10,25 +10,29 @@ const RenderLetter = ( WrappedComponent ) => {
       this.updateLetter = this.updateLetter.bind(this);
     }
 
+    shouldComponentUpdate(){
+      return false;
+    }
+
     componentWillReceiveProps(newProps){
       if(newProps.letter !== this.props.letter){
-        this.polygon.forEach( path => {
-          path.remove();
-        })
-        newProps.letterJson.forEach( path => {
-          let letterPoints = this.arrayToString(path)
-          this.polygon.push(this.snap.polyline(letterPoints));
-        });
+        this.animateLetter(newProps.letter);
       }
     }
 
-    updateLetter(letterJson){
-      this.polygon.forEach( path => {
-        path.remove();
-      })
-      letterJson.forEach( path => {
+    updateLetter(letter){
+      this.polygon.forEach( path => path.remove() )
+
+      letter.forEach( path => {
         let letterPoints = this.arrayToString(path)
         this.polygon.push(this.snap.polyline(letterPoints));
+      });
+    }
+
+    animateLetter(letter){
+      letter.forEach( (path, index) => {
+        let letterPoints = this.arrayToString(path);
+        this.polygon[index].animate({ points: letterPoints}, 200 );
       });
     }
 
@@ -36,7 +40,7 @@ const RenderLetter = ( WrappedComponent ) => {
       this.snap = Snap(element);
       this.polygon = [];
 
-      this.props.letterJson.forEach( path => {
+      this.props.letter.forEach( path => {
         let letterPoints = this.arrayToString(path)
         this.polygon.push(this.snap.polyline(letterPoints));
       });
@@ -53,22 +57,13 @@ const RenderLetter = ( WrappedComponent ) => {
 
     arrayToString(arr){
       let string = "";
-      arr.forEach( val => {
-        let x = this.toFixed(val.x, 2);
-        let y = this.toFixed(val.y, 2);
-        string = string.concat(x + ", " + y + ", ");
-      })
+      arr.forEach( val => string = string.concat(val.x + ", " + val.y + ", ") )
       string = string.slice(0, -2);
       return string;
     }
 
-    toFixed(value, precision) {
-      var power = Math.pow(10, precision || 0);
-      return String(Math.round(value * power) / power);
-    }
-
     render(){
-      return <WrappedComponent {...this.props} initLetter={this.initLetter} updateLetter={this.updateLetter}/>
+      return <WrappedComponent {...this.props} initLetter={this.initLetter} />
     }
   }
 }

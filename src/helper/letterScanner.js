@@ -1,7 +1,6 @@
-
 let lastIndex;
 
-const typeScan = (letterPoints, gridPoints, settings) => {
+const letterScan = (letterPoints, gridPoints, settings) => {
   let newLetterPoints = [];
   gridPoints = transformGridPoints(gridPoints, settings);
 
@@ -14,19 +13,17 @@ const typeScan = (letterPoints, gridPoints, settings) => {
     });
     newLetterPoints.push(newPath);
   });
-
   return newLetterPoints
 }
-export default typeScan;
+export default letterScan;
 
 
 const transformGridPoints = (gridPoints, settings) =>{
-  let baseScale = 2;
-  gridPoints.forEach( (point, index, points) =>{
-    points[index].x = point.x * 2;
-    points[index].y = point.y * 2;
+  let newGridPoints = [];
+  gridPoints.forEach( point => {
+    newGridPoints.push({"x": point.x * 2, "y": point.y * 2, "links": point.links })
   });
-  return gridPoints;
+  return newGridPoints;
 }
 
 const getClosestPoint = (point, gridPoints) => {
@@ -56,14 +53,16 @@ const getClosestLink = (point, gridPoints) => {
 
 
 const findClosestIndex = (distances, value) => {
-  let closestIndex;
-  let closestDist;
+  let closestIndex = 0;
+  let closestDist = distances[0];
+
   distances.forEach( (distance, index)  => {
-    if( !closestDist || closestDist > distance){
+    if( closestDist > distance ){
       closestIndex = index;
       closestDist = distance;
     }
   });
+
   return closestIndex;
 }
 
