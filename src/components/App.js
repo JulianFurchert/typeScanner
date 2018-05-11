@@ -22,8 +22,13 @@ class App extends Component {
                 gridSvg={gridsSvg[grid]}
                 gridSetting={gridSetting}
               />
-              <Alphabet />
+              <Alphabet
+                alphabet={alphabet}
+              />
               <div className="App-menu">
+                <Slider onChange={(value)=>{console.log(value)}} name={"zoom"} min={1} max={5} defaultValue={1} />
+                <Slider onChange={(value)=>{console.log(value)}} name={"x-Pos"} min={0} max={50} defaultValue={0} />
+                <Slider onChange={(value)=>{console.log(value)}} name={"y-Pos"} min={0} max={50} defaultValue={0} />
               </div>
             </div>
           </div>

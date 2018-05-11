@@ -18,10 +18,7 @@ class Letter extends Component {
 
   render(){
     return(
-      <svg
-        onClick={ () => {this.props.selectLetter(this.props.letter)} }
-        ref={ this.svg }  className="Letter"
-      />
+      <svg ref={ this.svg }  className="Letter"/>
     )
   }
 }

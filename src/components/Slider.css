@@ -1,4 +1,19 @@
+.Slider-container{
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+}
+
+.Slider-name {
+  display: inline-block;
+  margin: 0;
+  color: white;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
 .Slider{
-  width: 300px;
-  height: 30px;
+  display: inline-block;
+  width: 80px;
 }

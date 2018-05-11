@@ -11,7 +11,6 @@ const typeScan = (letterPoints, gridPoints, settings) => {
       if( index === 0 ) point = getClosestPoint(point, gridPoints);
       else point = getClosestLink(point, gridPoints);
       newPath.push({"x": point.x, "y": point.y});
-      console.log(point);
     });
     newLetterPoints.push(newPath);
   });
