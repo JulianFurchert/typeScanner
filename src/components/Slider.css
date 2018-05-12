@@ -3,12 +3,16 @@
   display: flex;
   align-items: center;
   margin: 0 16px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 8px;
 }
 
 .Slider-name {
   display: inline-block;
   margin: 0;
-  color: white;
+  color: black;
   margin-right: 8px;
   font-size: 14px;
 }
