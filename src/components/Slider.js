@@ -14,11 +14,11 @@ export default class SliderCo extends Component {
   }
 
   handleAfterChange(){
-    this.props.renderPreviewLetter();
+    this.props.renderAlphabet();
   }
 
   handleBeforeChange(value){
-    this.props.resetPreviewLetter();
+    this.props.resetAlphabet();
   }
 
   handleOnChange(value){

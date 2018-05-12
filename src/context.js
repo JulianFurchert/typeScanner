@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import _ from 'lodash';
 import letterScanner from "./helper/letterScanner"
 
-import alphabet from "./data/alphabet.json"
+import initialAlphabet from "./data/alphabet.json"
 import gridsJson from "./data/grids-json";
 import gridsSvg from "./data/grids-svg";
 
@@ -10,9 +10,8 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    initialAlphabet: alphabet,
-    alphabet: alphabet,
-    previewLetter: alphabet["A"],
+    alphabet: initialAlphabet,
+    previewLetter: initialAlphabet["A"],
     grid: "gi-dt-009",
     gridsJson: gridsJson,
     gridsSvg: gridsSvg,
@@ -23,32 +22,22 @@ export class Provider extends Component {
     }
   };
 
-  renderPreviewLetter = () => {
-    let NewPreviewLetter = letterScanner(
-      alphabet["A"],
-      this.state.gridsJson[this.state.grid],
-      this.state.gridSetting
-    );
-    this.setState({ previewLetter: NewPreviewLetter })
-  }
-
-  resetPreviewLetter = () => {
-    this.setState({ previewLetter: alphabet["A"] })
+  resetAlphabet = () => {
+    this.setState({ previewLetter: initialAlphabet["A"] })
+    this.setState({ alphabet: initialAlphabet})
   }
 
   renderAlphabet = () => {
-    let alphabet = _.mapValues( this.state.initialAlphabet, letter => {
+    let alphabet = _.mapValues( initialAlphabet, letter => {
       return letterScanner(
         letter,
         this.state.gridsJson[this.state.grid],
         this.state.gridSetting
       );
     });
+    this.setState({ previewLetter: alphabet["A"] })
     this.setState({ alphabet })
-  }
-
-  resetAlphabet = () => {
-    this.setState({ alphabet: this.state.initialAlphabet})
+    this.setState({ alphabet })
   }
 
   setGrid = (selectedGrid) => {
@@ -66,10 +55,8 @@ export class Provider extends Component {
       <Context.Provider
         value={{
           ...this.state,
-          renderPreviewLetter: this.renderPreviewLetter,
-          resetPreviewLetter: this.resetPreviewLetter,
-          renderAlphabet: this.renderAlphabet,
           resetAlphabet: this.resetAlphabet,
+          renderAlphabet: this.renderAlphabet,
           setGrid: this.setGrid,
           setGridSetting: this.setGridSetting,
         }}

@@ -1,12 +1,12 @@
 .Slider-container{
-  height: 32px;
   display: flex;
   align-items: center;
-  margin: 0 16px;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   border-radius: 6px;
   padding: 8px;
+  margin: 8px;
+  flex-grow: 2;
 }
 
 .Slider-name {

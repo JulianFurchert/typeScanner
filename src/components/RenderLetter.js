@@ -7,7 +7,6 @@ const RenderLetter = ( WrappedComponent ) => {
     constructor(props) {
       super(props);
       this.initLetter = this.initLetter.bind(this);
-      this.updateLetter = this.updateLetter.bind(this);
     }
 
     shouldComponentUpdate(){
@@ -20,19 +19,11 @@ const RenderLetter = ( WrappedComponent ) => {
       }
     }
 
-    updateLetter(letter){
-      this.polygon.forEach( path => path.remove() )
-
-      letter.forEach( path => {
-        let letterPoints = this.arrayToString(path)
-        this.polygon.push(this.snap.polyline(letterPoints));
-      });
-    }
-
     animateLetter(letter){
+      let animateTime = this.props.animateTime ? this.props.animateTime : 0;
       letter.forEach( (path, index) => {
         let letterPoints = this.arrayToString(path);
-        this.polygon[index].animate({ points: letterPoints}, 200 );
+        this.polygon[index].animate({ points: letterPoints}, animateTime );
       });
     }
 
@@ -50,7 +41,7 @@ const RenderLetter = ( WrappedComponent ) => {
         fill: "black",
         fillOpacity: "0",
         stroke: "black",
-        strokeWidth: 20,
+        strokeWidth: 40,
         strokeLinejoin: "round"
       })
     }

@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "lodash": "^4.17.10",
+    "opentype.js": "^0.8.0",
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
-    "snapsvg-cjs": "0.0.6"
+    "snapsvg-cjs": "0.0.6",
+    "svg-path-outline": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

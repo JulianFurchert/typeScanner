@@ -7,6 +7,17 @@ class Letter extends Component {
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("resize",this.updateDimensions.bind(this));
+  }
+
+  updateDimensions(){
+    let width = this.svg.current.getBoundingClientRect().width;
+    this.svg.current.style.height = width;
   }
 
   render(){

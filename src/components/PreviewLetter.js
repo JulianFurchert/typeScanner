@@ -13,7 +13,7 @@ class SelectedLetter extends Component{
 
   render(){
     return(
-      <div>
+      <div className="PreviewLetter">
         <svg ref={this.svg} className="SelectedLetter" />
         <Consumer>
           {({ gridsSvg, grid, gridSetting }) => (

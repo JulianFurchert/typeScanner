@@ -1,6 +1,7 @@
 .Letter {
-  width: 72px;
-  height: 72px;
+  width: 10%;
+  height: 10%;
+  height: auto;
   border: 0.5px solid #191919;
 
 }
