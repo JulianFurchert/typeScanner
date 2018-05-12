@@ -31,11 +31,13 @@ export class Provider extends Component {
   }
 
   renderAlphabet = () => {
-    let j = this.state.gridsJson[this.files[this.index]].then( (json) => {
-      console.log(this.files[this.index]);
-      console.log(json);
-      this.index++;
-  });
+    // let j = this.state.gridsJson[this.files[this.index]].then( (json) => {
+    //   console.log(this.files[this.index]);
+    //   console.log(json);
+    //   this.index++;
+    // });
+    import('./data/gi-dt-001.json').then(grid => { console.log(grid) }),
+
     // let alphabet = _.mapValues( initialAlphabet, letter => {
     //   return letterScanner(
     //     letter,
