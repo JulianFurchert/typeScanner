@@ -18,8 +18,8 @@ export class Provider extends Component {
     gridsSvg: gridsSvg,
     gridSetting: {
       zoom: 1,
-      xPosition: 0,
-      yPosition: 0
+      xPos: 0,
+      yPos: 0
     }
   };
 
@@ -55,8 +55,10 @@ export class Provider extends Component {
     this.setState({ selectedGrid })
   }
 
-  setGridSetting = ( gridSetting ) => {
-    this.setState({ gridSetting })
+  setGridSetting = ( setting ) => {
+    this.setState({
+      gridSetting: Object.assign(this.state.gridSetting, setting)
+    })
   }
 
   render(){

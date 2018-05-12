@@ -14,6 +14,17 @@ class Grid extends Component {
     return false;
   }
 
+  componentWillReceiveProps(newProps){
+    if(newProps.zoom !== this.props.zoom){
+      let zoom = newProps.zoom;
+      this.grid.transform(`s${zoom} ,${zoom} ,0 ,0`);
+    }
+    if(newProps.zoom !== this.props.zoom){
+    }
+    if(newProps.zoom !== this.props.zoom){
+    }
+  }
+
   componentDidMount(){
     this.initGrid(this.svg.current);
   }

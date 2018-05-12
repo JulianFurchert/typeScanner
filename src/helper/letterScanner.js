@@ -20,8 +20,9 @@ export default letterScan;
 
 const transformGridPoints = (gridPoints, settings) =>{
   let newGridPoints = [];
+  let zoom = settings.zoom;
   gridPoints.forEach( point => {
-    newGridPoints.push({"x": point.x * 2, "y": point.y * 2, "links": point.links })
+    newGridPoints.push({"x": point.x * zoom, "y": point.y * zoom, "links": point.links })
   });
   return newGridPoints;
 }
