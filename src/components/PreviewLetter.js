@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import RenderLetter from './RenderLetter';
 import { Consumer } from "../context";
+import RenderLetter from './RenderLetter';
+import Artboard from './Artboard'
 import Grid from './Grid';
 import './PreviewLetter.css'
 
@@ -13,14 +14,14 @@ class SelectedLetter extends Component{
 
   render(){
     return(
-      <div className="SelectedLetter-container">
+      <Artboard>
         <svg ref={this.svg} className="SelectedLetter" />
         <Consumer>
           {({ gridsSvg, grid, gridSetting }) => (
             <Grid gridSvg={gridsSvg[grid]} {...gridSetting}/>
           )}
         </Consumer>
-      </div>
+      </Artboard>
     )
   }
 }

@@ -1,5 +1,4 @@
 .Menu {
-  background-color: #191919;
   height: 64px;
   width: 100%;
   position: absolute;
@@ -12,4 +11,5 @@
   padding: 8px;
   align-items: center;
   z-index: 1000;
+  /* background-color: gray; */
 }

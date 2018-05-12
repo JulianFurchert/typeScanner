@@ -1,19 +1,12 @@
 .App {
   position: relative;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-
 }
 
 .App-main {
   position: relative;
-  height: 100%;
   width: 100%;
   display: flex;
-  padding: 20px;
-  border: 2.5px solid #191919;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

@@ -1,0 +1,31 @@
+.Artboard-container{
+  min-height: 100vh;
+  width: 50%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding:24px;
+}
+
+.Artboard{
+  position: relative;
+  margin: 0, auto;
+  height: calc( 1.27 * 40vw );
+  width: 40vw;
+  background-color: white;
+  margin: 0 auto;
+}
+
+@media only screen and (max-device-width : 736px){
+  .Artboard-container{
+    height: auto;
+    padding:16px;
+    width: 100%;
+  }
+  .Artboard{
+    position: relative;
+    width: 100vw;
+    height: calc( 1.27 * 100vw );
+    background-color: white;
+  }
+}
