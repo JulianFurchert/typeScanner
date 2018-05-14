@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Consumer>
-        {({ alphabet, previewLetter }) => (
+        {({ alphabet, previewLetter, setGridSetting, renderAlphabet, resetAlphabet }) => (
           <div className="App">
             <div className= "App-main">
               <Artboard artboard="previewLetter" >
@@ -22,7 +22,11 @@ class App extends Component {
               </Artboard>
             </div>
             <div className= "App-menu">
-              <Menu />
+              <Menu
+                setGridSetting={setGridSetting}
+                renderAlphabet={renderAlphabet}
+                resetAlphabet={resetAlphabet}
+              />
             </div>
           </div>
         )}

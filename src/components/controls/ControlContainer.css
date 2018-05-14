@@ -1,0 +1,17 @@
+.ControlContainer {
+  height: 32px;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+  justify-content:center;
+}
+
+.ControlContainer:hover {
+  background-color: #ddd;
+}

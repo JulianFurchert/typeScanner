@@ -8,4 +8,5 @@
   align-items: center;
   z-index: 1000;
   background-color: white;
+  padding: 0 16px;
 }

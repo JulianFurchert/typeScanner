@@ -9,13 +9,10 @@ import gridsSvg from "./data/grids-svg";
 const Context = React.createContext();
 
 export class Provider extends Component {
-  files = [ 'gi-dt-001', 'gi-dt-002', 'gi-dt-003', 'gi-dt-004' ];
-  index = 0;
-
   state = {
     alphabet: initialAlphabet,
     previewLetter: initialAlphabet["A"],
-    grid: "gi-dt-009",
+    grid: "gi-dt-004",
     gridsJson: gridsJson,
     gridsSvg: gridsSvg,
     gridSetting: {
@@ -31,23 +28,16 @@ export class Provider extends Component {
   }
 
   renderAlphabet = () => {
-    // let j = this.state.gridsJson[this.files[this.index]].then( (json) => {
-    //   console.log(this.files[this.index]);
-    //   console.log(json);
-    //   this.index++;
-    // });
-    import('./data/gi-dt-001.json').then(grid => { console.log(grid) }),
-
-    // let alphabet = _.mapValues( initialAlphabet, letter => {
-    //   return letterScanner(
-    //     letter,
-    //     this.state.gridsJson[this.state.grid],
-    //     this.state.gridSetting
-    //   );
-    // });
-    // this.setState({ previewLetter: alphabet["A"] })
-    // this.setState({ alphabet })
-    // this.setState({ alphabet })
+    let alphabet = _.mapValues( initialAlphabet, letter => {
+      return letterScanner(
+        letter,
+        this.state.gridsJson[this.state.grid],
+        this.state.gridSetting
+      );
+    });
+    this.setState({ previewLetter: alphabet["A"] })
+    this.setState({ alphabet })
+    this.setState({ alphabet })
   }
 
   setGrid = (selectedGrid) => {

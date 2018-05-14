@@ -6,7 +6,7 @@
 .App-main {
   position: relative;
   width: 100%;
-  height: calc( 100vh - 64px );
+  height: calc( 100vh - 72px );
   padding: 24px;
   overflow: hidden;
   display: flex;
@@ -19,5 +19,5 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 64px ;
+  height: 72px ;
 }

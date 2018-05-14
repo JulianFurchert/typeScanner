@@ -38,6 +38,7 @@ class Grid extends Component {
 
     Snap.load(this.props.gridSvg, (data) =>{
       data.select("svg").attr({
+        stroke: "#d6d6d6",
         viewBox: "",
         baseProfile: "",
         version: "",
