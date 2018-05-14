@@ -17,6 +17,11 @@ const RenderLetter = ( WrappedComponent ) => {
       if(newProps.letter !== this.props.letter){
         this.animateLetter(newProps.letter);
       }
+      if(newProps.weight !== this.weight){
+        this.snap.attr({
+          strokeWidth: newProps.weight,
+        })
+      }
     }
 
     animateLetter(letter){
@@ -41,7 +46,7 @@ const RenderLetter = ( WrappedComponent ) => {
         fill: "black",
         fillOpacity: "0",
         stroke: "black",
-        strokeWidth: 40,
+        strokeWidth: this.props.weight,
         strokeLinejoin: "round"
       })
     }

@@ -12,6 +12,7 @@ export class Provider extends Component {
   state = {
     alphabet: initialAlphabet,
     previewLetter: initialAlphabet["A"],
+    weight: 20,
     grid: "gi-dt-004",
     gridsJson: gridsJson,
     gridsSvg: gridsSvg,
@@ -50,6 +51,10 @@ export class Provider extends Component {
     })
   }
 
+  setWeight = (weight) => {
+    this.setState({ weight})
+  }
+
   render(){
     return(
       <Context.Provider
@@ -57,6 +62,7 @@ export class Provider extends Component {
           ...this.state,
           resetAlphabet: this.resetAlphabet,
           renderAlphabet: this.renderAlphabet,
+          setWeight: this.setWeight,
           setGrid: this.setGrid,
           setGridSetting: this.setGridSetting,
         }}

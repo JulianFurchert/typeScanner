@@ -16,4 +16,5 @@
 
 .Artboard.alphabet{
   flex-grow: 1;
+  overflow: scroll;
 }

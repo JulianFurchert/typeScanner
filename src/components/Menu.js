@@ -9,6 +9,7 @@ class Menu extends Component {
   constructor(props){
     super(props);
     this.updateGridSetting = this.updateGridSetting.bind(this);
+    this.updateWeight = this.updateWeight.bind(this);
   }
 
   updateGridSetting(key, value){
@@ -17,41 +18,43 @@ class Menu extends Component {
     this.props.setGridSetting(obj);
   }
 
+  updateWeight(key, value){
+    this.props.setWeight(value);
+  }
+
   render(){
     return (
       <div className="Menu">
         <div className="Menu-settings">
           <Slider
             name={"zoom"}
-            min={2} max={30}
-            defaultValue={2}
+            min={1} max={20}
+            defaultValue={1}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
             name={"yPos"}
-            min={2} max={30}
-            defaultValue={2}
+            min={-20} max={+20}
+            defaultValue={0}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
             name={"xPos"}
-            min={2} max={30}
-            defaultValue={2}
+            min={-20} max={+20}
+            defaultValue={0}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"Width"}
-            min={2} max={30}
-            defaultValue={2}
-            onBeforeChange={this.props.resetAlphabet}
-            onChange={this.updateGridSetting}
-            onAfterChange={this.props.renderAlphabet}
+            name={"Weight"}
+            min={20} max={80}
+            defaultValue={40}
+            onChange={this.updateWeight}
           />
           <SelectGrid name={"Grid"} />
         </div>

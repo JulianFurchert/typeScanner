@@ -12,7 +12,7 @@ class Letter extends Component {
   }
 
   componentWillUnmount(){
-    window.removeEventListener("resize",this.updateDimensions.bind(this));
+    // window.removeEventListener("resize",this.updateDimensions.bind(this));
   }
 
   updateDimensions(){

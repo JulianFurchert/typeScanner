@@ -1,4 +1,5 @@
 let lastIndex;
+const baseScale = 2.5;
 
 const letterScan = (letterPoints, gridPoints, settings) => {
   let newLetterPoints = [];
@@ -20,9 +21,16 @@ export default letterScan;
 
 const transformGridPoints = (gridPoints, settings) =>{
   let newGridPoints = [];
-  let zoom = settings.zoom;
+  let zoom = baseScale + settings.zoom;
+  let zommCenterX = ( 1100 * settings.zoom - 1100 ) / 2;
+  let zommCenterY = ( 1400 * settings.zoom - 1400 ) / 2;
+  let xPos = zommCenterX;
+  let yPos = zommCenterY;
+
   gridPoints.forEach( point => {
-    newGridPoints.push({"x": point.x * zoom, "y": point.y * zoom, "links": point.links })
+    let x = ( point.x * zoom ) - xPos;
+    let y = ( point.y * zoom ) - yPos;
+    newGridPoints.push({"x": x, "y": y, "links": point.links })
   });
   return newGridPoints;
 }

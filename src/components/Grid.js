@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
 import './Grid.css';
 
+const baseScale = 2.5;
+
 class Grid extends Component {
 
   constructor(props) {
@@ -15,13 +17,13 @@ class Grid extends Component {
   }
 
   componentWillReceiveProps(newProps){
-    if(newProps.zoom !== this.props.zoom){
-      let zoom = newProps.zoom;
-      this.grid.transform(`s${zoom} ,${zoom} ,0 ,0`);
-    }
-    if(newProps.zoom !== this.props.zoom){
-    }
-    if(newProps.zoom !== this.props.zoom){
+    if(newProps.zoom !== this.props.zoom || newProps.xPos !== this.props.xPos ||  newProps.yPos !== this.props.yPos ){
+      let zoom = baseScale + newProps.zoom;
+      let zommCenterX = ( 1100 * newProps.zoom - 1100 ) / 2;
+      let zommCenterY = ( 1400 * newProps.zoom - 1400 ) / 2;
+      let xPos = zommCenterX;
+      let yPos = zommCenterY;
+      this.grid.transform(`t-${xPos} -${yPos} s${zoom} 0 0`);
     }
   }
 
@@ -48,9 +50,8 @@ class Grid extends Component {
         "xml:space" : ""
       });
       this.grid.append( data.select("svg") );
+      this.grid.transform(`s${baseScale} 0 0`);
     });
-
-    this.grid.transform("s2 ,2");
   }
 
   handleClick(){
