@@ -1,3 +1,11 @@
+.Button-container {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  cursor: pointer;
+  width: 120px;
+}
+
 .Button-name{
   text-align: center;
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import Slider from 'rc-slider';
-import ControlContainer from './ControlContainer';
 import sliderIcon from '../../data/icons/icon_slider.svg';
 
 import 'rc-slider/assets/index.css';
+import './control.css'
 import './Slider.css'
 
 const SliderComponent = (props) => {
   return(
-    <ControlContainer>
+    <div className="Slider-container control">
       <p className="Slider-name">{props.name}</p>
       <Slider
         handleStyle={{
@@ -19,11 +19,10 @@ const SliderComponent = (props) => {
           backgroundPosition: 'center center',
           height: 20,
           width: 20,
-          marginLeft: 0,
+          marginLeft: -10,
           marginTop: -8,
           border: '0'
         }}
-        activeDotStyle= {{ border: '2px solid red' }}
         railStyle={{ backgroundColor: 'transparent' }}
         trackStyle={{ backgroundColor: 'transparent' }}
         className="Slider"
@@ -33,7 +32,7 @@ const SliderComponent = (props) => {
         min={props.min} max={props.max}
         defaultValue={props.defaultValue}
       />
-    </ControlContainer>
+    </div>
   )
 }
 

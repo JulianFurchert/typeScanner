@@ -1,4 +1,4 @@
-.ControlContainer {
+.control {
   height: 32px;
   padding: 8px;
   margin: 8px;
@@ -6,12 +6,9 @@
   border: 1px solid #ddd;
   border-radius: 16px;
   font-size: 14px;
-  display: flex;
-  align-items: center;
-  flex-grow: 2;
-  justify-content:center;
+  flex-shrink: 1;
 }
 
-.ControlContainer:hover {
+.control:hover {
   background-color: #ddd;
 }

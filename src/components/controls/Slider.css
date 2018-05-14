@@ -1,11 +1,22 @@
+.Slider-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+  justify-content:center;
+  width: 160px;
+}
+
 .Slider-name {
   display: inline-block;
   margin: 0;
   color: black;
-  margin-right: 8px;
+  margin: 0 8px;
 }
 
-.Slider{
-  display: inline-block;
-  width: 80px;
+.Slider {
+  margin: 0 8px;
+}
+
+.rc-slider-handle:active{
+  box-shadow: 0;
 }
