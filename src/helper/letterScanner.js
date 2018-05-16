@@ -1,5 +1,5 @@
 let lastIndex;
-const baseScale = 2.5;
+const baseScale = 3;
 
 const letterScan = (letterPoints, gridPoints, settings) => {
   let newLetterPoints = [];
@@ -21,7 +21,7 @@ export default letterScan;
 
 const transformGridPoints = (gridPoints, settings) =>{
   let newGridPoints = [];
-  let zoom = baseScale + settings.zoom;
+  let zoom = baseScale * settings.zoom;
   let zommCenterX = ( 1100 * settings.zoom - 1100 ) / 2;
   let zommCenterY = ( 1400 * settings.zoom - 1400 ) / 2;
   let xPos = zommCenterX;

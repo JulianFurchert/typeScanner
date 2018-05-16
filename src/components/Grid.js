@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
 import './Grid.css';
 
-const baseScale = 2.5;
+const baseScale = 3;
 
 class Grid extends Component {
 
@@ -18,12 +18,12 @@ class Grid extends Component {
 
   componentWillReceiveProps(newProps){
     if(newProps.zoom !== this.props.zoom || newProps.xPos !== this.props.xPos ||  newProps.yPos !== this.props.yPos ){
-      let zoom = baseScale + newProps.zoom;
-      let zommCenterX = ( 1100 * newProps.zoom - 1100 ) / 2;
-      let zommCenterY = ( 1400 * newProps.zoom - 1400 ) / 2;
-      let xPos = zommCenterX;
-      let yPos = zommCenterY;
-      this.grid.transform(`t-${xPos} -${yPos} s${zoom} 0 0`);
+      let zoom = baseScale * newProps.zoom;
+      let xShift = ( 1100 * newProps.zoom - 1100 ) / -2;
+      let yShift = ( 1400 * newProps.zoom - 1400 ) / -2;
+      let xPos = xShift;
+      let yPos = yShift;
+      this.grid.transform(`t${xPos} ${yPos} s${zoom} 0 0`);
     }
   }
 
@@ -34,11 +34,13 @@ class Grid extends Component {
   initGrid(element){
     this.snap = Snap(element);
     this.grid = this.snap.group();
+
     this.snap.attr({
       viewBox: "0 0 1100 1400"
     })
 
     Snap.load(this.props.gridSvg, (data) =>{
+      let viewBox = data.select("svg").attr().viewBox.split(" ");
       data.select("svg").attr({
         stroke: "#d6d6d6",
         viewBox: "",
@@ -49,8 +51,9 @@ class Grid extends Component {
         "xmlns:xlink": "",
         "xml:space" : ""
       });
+
       this.grid.append( data.select("svg") );
-      this.grid.transform(`s${baseScale} 0 0`);
+      this.grid.transform(`s${baseScale * this.props.zoom} 0 0`);
     });
   }
 

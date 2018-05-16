@@ -17,7 +17,7 @@ export class Provider extends Component {
     gridsJson: gridsJson,
     gridsSvg: gridsSvg,
     gridSetting: {
-      zoom: 1,
+      zoom: 4,
       xPos: 0,
       yPos: 0
     }
