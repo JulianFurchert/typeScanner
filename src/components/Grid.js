@@ -19,11 +19,11 @@ class Grid extends Component {
   componentWillReceiveProps(newProps){
     if(newProps.zoom !== this.props.zoom || newProps.xPos !== this.props.xPos ||  newProps.yPos !== this.props.yPos ){
       let zoom = baseScale * newProps.zoom;
-      let xShift = ( 1100 * newProps.zoom - 1100 ) / -2;
-      let yShift = ( 1400 * newProps.zoom - 1400 ) / -2;
-      let xPos = xShift;
-      let yPos = yShift;
-      this.grid.transform(`t${xPos} ${yPos} s${zoom} 0 0`);
+      let xZoomShift = ( 1100 * newProps.zoom - 1100 ) / -2;
+      let yZoomShift = ( 1400 * newProps.zoom - 1400 ) / -2;
+      let xShift = xZoomShift + (newProps.xPos * zoom);
+      let yShift = yZoomShift + (newProps.yPos * zoom);
+      this.grid.transform(`t${xShift} ${yShift} s${zoom} 0 0`);
     }
   }
 
@@ -40,7 +40,6 @@ class Grid extends Component {
     })
 
     Snap.load(this.props.gridSvg, (data) =>{
-      let viewBox = data.select("svg").attr().viewBox.split(" ");
       data.select("svg").attr({
         stroke: "#d6d6d6",
         viewBox: "",

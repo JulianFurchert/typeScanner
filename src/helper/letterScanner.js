@@ -22,14 +22,14 @@ export default letterScan;
 const transformGridPoints = (gridPoints, settings) =>{
   let newGridPoints = [];
   let zoom = baseScale * settings.zoom;
-  let zommCenterX = ( 1100 * settings.zoom - 1100 ) / 2;
-  let zommCenterY = ( 1400 * settings.zoom - 1400 ) / 2;
-  let xPos = zommCenterX;
-  let yPos = zommCenterY;
+  let xZoomShift = ( 1100 * settings.zoom - 1100 ) / -2;
+  let yZoomShift = ( 1400 * settings.zoom - 1400 ) / -2;
+  let xShift = xZoomShift + (settings.xPos * zoom);
+  let yShift = yZoomShift + (settings.yPos * zoom);
 
   gridPoints.forEach( point => {
-    let x = ( point.x * zoom ) - xPos;
-    let y = ( point.y * zoom ) - yPos;
+    let x = ( point.x * zoom ) + xShift;
+    let y = ( point.y * zoom ) + yShift;
     newGridPoints.push({"x": x, "y": y, "links": point.links })
   });
   return newGridPoints;
