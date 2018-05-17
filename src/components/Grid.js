@@ -40,18 +40,15 @@ class Grid extends Component {
     })
 
     Snap.load(this.props.gridSvg, (data) =>{
-      data.select("svg").attr({
-        stroke: "#d6d6d6",
-        viewBox: "",
-        baseProfile: "",
-        version: "",
-        id:"",
-        xmlns: "",
-        "xmlns:xlink": "",
-        "xml:space" : ""
+      this.grid.append( data);
+      this.grid.attr({
+        stroke: "#383838",
+        fill: "none",
+        "stroke-width": "0.1",
+        "stroke-linecap": "square",
+        "stroke-miterlimit": "3.239",
       });
 
-      this.grid.append( data.select("svg") );
       this.grid.transform(`s${baseScale * this.props.zoom} 0 0`);
     });
   }

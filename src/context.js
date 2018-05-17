@@ -4,7 +4,7 @@ import letterScanner from "./helper/letterScanner"
 
 import initialAlphabet from "./data/alphabet.json"
 import gridsJson from "./data/grids-json";
-import gridsSvg from "./data/grids-svg";
+import gridsSvg from "./data/grids-svg-clean";
 
 const Context = React.createContext();
 
