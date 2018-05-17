@@ -35,7 +35,7 @@ class Menu extends Component {
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"yPos"}
+            name={"xPos"}
             min={-20} max={+20}
             defaultValue={0}
             onBeforeChange={this.props.resetAlphabet}
@@ -43,7 +43,7 @@ class Menu extends Component {
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"xPos"}
+            name={"yPos"}
             min={-20} max={+20}
             defaultValue={0}
             onBeforeChange={this.props.resetAlphabet}
