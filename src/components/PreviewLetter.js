@@ -16,8 +16,8 @@ class SelectedLetter extends Component{
       <div className="PreviewLetter">
         <svg ref={this.svg} className="SelectedLetter" />
         <Consumer>
-          {({ gridsSvg, grid, gridSetting }) => (
-            <Grid gridSvg={gridsSvg[grid]} {...gridSetting}/>
+          {({ gridsSvg, grid, gridSetting, setGrid }) => (
+            <Grid setGrid={setGrid} gridSvg={gridsSvg[grid]} {...gridSetting}/>
           )}
         </Consumer>
       </div>

@@ -29,6 +29,7 @@ class Grid extends Component {
 
   componentDidMount(){
     this.initGrid(this.svg.current);
+    this.props.setGrid("gi-dt-001");
   }
 
   initGrid(element){

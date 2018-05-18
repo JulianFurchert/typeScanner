@@ -1,22 +1,24 @@
 import React, {Component} from "react";
 import _ from 'lodash';
+import axios from'axios';
 import letterScanner from "./helper/letterScanner"
 
 import initialAlphabet from "./data/alphabet.json"
-import gridsJson from "./data/grids-json";
 import gridsSvg from "./data/grids-svg-clean";
 
 const Context = React.createContext();
 
-console.log(process.env.NODE_ENV === 'production' ? 'http//your-url' : 'http://localhost:3000')
+const ax = axios.create({
+  baseURL: process.env.NODE_ENV === 'production' ? 'https://fontscanner.netlify.com' : 'http://localhost:3000'
+})
 
 export class Provider extends Component {
   state = {
     alphabet: initialAlphabet,
     previewLetter: initialAlphabet["A"],
     weight: 20,
-    grid: "gi-dt-004",
-    gridsJson: gridsJson,
+    grid: "",
+    gridJson: [],
     gridsSvg: gridsSvg,
     gridSetting: {
       zoom: 4,
@@ -30,21 +32,30 @@ export class Provider extends Component {
     this.setState({ alphabet: initialAlphabet})
   }
 
-  renderAlphabet = () => {
+  renderAlphabet = (gridJson = this.state.gridJson) => {
+    console.log(gridJson);
     let alphabet = _.mapValues( initialAlphabet, letter => {
       return letterScanner(
         letter,
-        this.state.gridsJson[this.state.grid],
+        gridJson,
         this.state.gridSetting
       );
     });
     this.setState({ previewLetter: alphabet["A"] })
     this.setState({ alphabet })
-    this.setState({ alphabet })
   }
 
   setGrid = (selectedGrid) => {
-    this.setState({ selectedGrid })
+    let self = this;
+    ax.get(`grids-json/${selectedGrid}.json`)
+      .then(function (response) {
+        self.renderAlphabet(response.data)
+        self.setState({selectedGrid});
+        self.setState({gridJson: response.data}, ()=>{
+          console.log("setState");
+        });
+      })
+      .catch(function (error) {});
   }
 
   setGridSetting = ( setting ) => {
