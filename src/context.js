@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import _ from 'lodash';
 import axios from'axios';
 import letterScanner from "./helper/letterScanner"
-
 import initialAlphabet from "./data/alphabet.json"
-import gridsSvg from "./data/grids-svg-clean";
+import gridsSvg from "./data/grids-svg";
+//import gridsPng from "./data/grids-png";
 
 const Context = React.createContext();
 
@@ -16,6 +16,7 @@ export class Provider extends Component {
   state = {
     alphabet: initialAlphabet,
     previewLetter: initialAlphabet["A"],
+    loading: true,
     weight: 20,
     grid: "",
     gridJson: [],
@@ -32,12 +33,11 @@ export class Provider extends Component {
     this.setState({ alphabet: initialAlphabet})
   }
 
-  renderAlphabet = (gridJson = this.state.gridJson) => {
-    console.log(gridJson);
+  renderAlphabet = () => {
     let alphabet = _.mapValues( initialAlphabet, letter => {
       return letterScanner(
         letter,
-        gridJson,
+        this.state.gridJson,
         this.state.gridSetting
       );
     });
@@ -45,16 +45,14 @@ export class Provider extends Component {
     this.setState({ alphabet })
   }
 
-  setGrid = (selectedGrid) => {
-    let self = this;
-    ax.get(`grids-json/${selectedGrid}.json`)
+  setGrid = (grid) => {
+    ax.get(`grids-json/${grid}.json`)
       .then(function (response) {
-        self.renderAlphabet(response.data)
-        self.setState({selectedGrid});
-        self.setState({gridJson: response.data}, ()=>{
-          console.log("setState");
+        this.setState({grid});
+        this.setState({gridJson: response.data}, ()=>{
+          this.renderAlphabet();
         });
-      })
+      }.bind(this))
       .catch(function (error) {});
   }
 
