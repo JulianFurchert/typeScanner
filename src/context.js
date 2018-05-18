@@ -8,6 +8,8 @@ import gridsSvg from "./data/grids-svg-clean";
 
 const Context = React.createContext();
 
+console.log(process.env.NODE_ENV === 'production' ? 'http//your-url' : 'http://localhost:3000')
+
 export class Provider extends Component {
   state = {
     alphabet: initialAlphabet,
