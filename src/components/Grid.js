@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
 import './Grid.css';
-
+import gridsSvg from "../data/grids-svg";
 const baseScale = 3;
 
 class Grid extends Component {
@@ -25,23 +25,27 @@ class Grid extends Component {
       let yShift = yZoomShift + (newProps.yPos * zoom);
       this.grid.transform(`t${xShift} ${yShift} s${zoom} 0 0`);
     }
+    if(newProps.grid  !== this.props.grid ) {
+      this.loadGrid(gridsSvg[newProps.grid]);
+    }
   }
 
   componentDidMount(){
-    this.initGrid(this.svg.current);
-    this.props.setGrid("gi-dt-001");
+    this.initSnap(this.svg.current);
+    this.props.setGrid("gi-dt-002");
   }
 
-  initGrid(element){
+  initSnap(element){
     this.snap = Snap(element);
+    this.snap.attr({ viewBox: "0 0 1100 1400" });
+  }
+
+  loadGrid(svgFile){
+    if(this.grid) this.grid.remove();
+
     this.grid = this.snap.group();
-
-    this.snap.attr({
-      viewBox: "0 0 1100 1400"
-    })
-
-    Snap.load(this.props.gridSvg, (data) =>{
-      this.grid.append( data);
+    Snap.load(svgFile, data => {
+      this.grid.append(data);
       this.grid.attr({
         stroke: "#383838",
         fill: "none",
@@ -49,7 +53,6 @@ class Grid extends Component {
         "stroke-linecap": "square",
         "stroke-miterlimit": "3.239",
       });
-
       this.grid.transform(`s${baseScale * this.props.zoom} 0 0`);
     });
   }

@@ -3,8 +3,7 @@ import _ from 'lodash';
 import axios from'axios';
 import letterScanner from "./helper/letterScanner"
 import initialAlphabet from "./data/alphabet.json"
-import gridsSvg from "./data/grids-svg";
-//import gridsPng from "./data/grids-png";
+
 
 const Context = React.createContext();
 
@@ -14,13 +13,12 @@ const ax = axios.create({
 
 export class Provider extends Component {
   state = {
-    alphabet: initialAlphabet,
-    previewLetter: initialAlphabet["A"],
     loading: true,
-    weight: 20,
-    grid: "",
+    alphabet: initialAlphabet,
+    previewLetter: "A",
+    fontWeight: 20,
+    grid: null,
     gridJson: [],
-    gridsSvg: gridsSvg,
     gridSetting: {
       zoom: 4,
       xPos: 0,
@@ -29,7 +27,6 @@ export class Provider extends Component {
   };
 
   resetAlphabet = () => {
-    this.setState({ previewLetter: initialAlphabet["A"] })
     this.setState({ alphabet: initialAlphabet})
   }
 
@@ -41,28 +38,34 @@ export class Provider extends Component {
         this.state.gridSetting
       );
     });
-    this.setState({ previewLetter: alphabet["A"] })
     this.setState({ alphabet })
+    this.setState({ loading: false });
   }
 
-  setGrid = (grid) => {
+  setPreviewLetter = previewLetter => {
+    this.setState({ previewLetter })
+  }
+
+  setGrid = grid => {
+    this.setState({ grid });
+    this.setState({ loading: true });
     ax.get(`grids-json/${grid}.json`)
       .then(function (response) {
-        this.setState({grid});
-        this.setState({gridJson: response.data}, ()=>{
+        let gridJson = response.data;
+        this.setState({ gridJson }, () => {
           this.renderAlphabet();
         });
       }.bind(this))
       .catch(function (error) {});
   }
 
-  setGridSetting = ( setting ) => {
+  setGridSetting = setting => {
     this.setState({
       gridSetting: Object.assign(this.state.gridSetting, setting)
     })
   }
 
-  setWeight = (weight) => {
+  setFontWeight = weight => {
     this.setState({ weight})
   }
 
@@ -73,7 +76,8 @@ export class Provider extends Component {
           ...this.state,
           resetAlphabet: this.resetAlphabet,
           renderAlphabet: this.renderAlphabet,
-          setWeight: this.setWeight,
+          setPreviewLetter: this.setPreviewLetter,
+          setFontWeight: this.setFontWeight,
           setGrid: this.setGrid,
           setGridSetting: this.setGridSetting,
         }}

@@ -19,7 +19,7 @@ class Menu extends Component {
   }
 
   updateWeight(key, value){
-    this.props.setWeight(value);
+    this.props.setFontWeight(value);
   }
 
   render(){

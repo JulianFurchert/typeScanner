@@ -5,7 +5,7 @@ const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 
 class Alphabet extends Component{
 
-  renderLetters(alphabet, selectLetter, weight){
+  renderLetters(alphabet, selectLetter, weight, setPreviewLetter){
     return letters.map( (lettername,index) => {
       return (
         <Letter
@@ -14,6 +14,7 @@ class Alphabet extends Component{
           viewbox={"0 0 1100 1000"}
           letterName={lettername}
           letter={alphabet[lettername]}
+          setPreviewLetter={setPreviewLetter}
         />
       )
     });
@@ -22,7 +23,7 @@ class Alphabet extends Component{
   render(){
     return (
       <div className="Alphabet" >
-        {this.renderLetters(this.props.alphabet, this.props.selectLetter, this.props.weight)}
+        {this.renderLetters(this.props.alphabet, this.props.selectLetter, this.props.weight, this.props.setPreviewLetter)}
       </div>
     )
   }

@@ -15,7 +15,11 @@ const RenderLetter = ( WrappedComponent ) => {
 
     componentWillReceiveProps(newProps){
       if(newProps.letter !== this.props.letter){
-        this.animateLetter(newProps.letter);
+        if(newProps.letterName === this.props.letterName){
+          this.animateLetter(newProps.letter);
+        }else {
+          //this.updateLetter(newProps.letter);
+        }
       }
       if(newProps.weight !== this.weight){
         this.snap.attr({
@@ -29,6 +33,14 @@ const RenderLetter = ( WrappedComponent ) => {
       letter.forEach( (path, index) => {
         let letterPoints = this.arrayToString(path);
         this.polygon[index].animate({ points: letterPoints}, animateTime );
+      });
+    }
+
+    updateLetter(letter){
+      this.polygon.forEach( path => path.remove() );
+      letter.forEach( path => {
+        let letterPoints = this.arrayToString(path)
+        this.polygon.push(this.snap.polyline(letterPoints));
       });
     }
 

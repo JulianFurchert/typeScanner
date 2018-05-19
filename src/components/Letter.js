@@ -3,7 +3,12 @@ import RenderLetter from './RenderLetter';
 import './Letter.css';
 
 class Letter extends Component {
-  svg = React.createRef();
+
+  constructor(props){
+    super(props);
+    this.svg = React.createRef();
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
@@ -20,8 +25,12 @@ class Letter extends Component {
     this.svg.current.style.height = width;
   }
 
+  handleClick(){
+    this.props.setPreviewLetter(this.props.letterName);
+  }
+
   render(){
-    return <svg ref={this.svg}  className="Letter"/>
+    return <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
   }
 }
 
