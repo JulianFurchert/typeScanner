@@ -21,19 +21,72 @@
   margin: 0 8px;
 }
 
-.GridList{
+.GridList-container{
   position: fixed;
-  top:20px;
-  right:20px;
-  left:20px;
-  bottom:20px;
-  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 300;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(50,50,50,0.3)
+}
+
+.GridList{
+  background-color: white;
+  width: calc(100vw - 32px);
+  max-width: 1248px;
+  margin: 16px auto;
+  border-radius: 16px;
+}
+
+.GridList-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.GridList-header-title{
+  font-size: 16px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.GridList-header-closeButton{
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  background-image: url(../../data/icons/icon_close.svg);
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+}
+
+.GridList-header-closeButton:hover{
+  background-color: #ddd;
+}
+
+.GridList-body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .GridList-item{
-  height: 200px;
-  width: 200px;
-  columns: blue;
+  width: 30%;
+  margin: 20px 0;
+}
+
+.GridList-item:hover{
+  background-color: ghostwhite;
+}
+
+.GridList-item img{
+  width: 100%;
 }

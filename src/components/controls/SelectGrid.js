@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazy-load';
 import grids from '../../data/gridList.json';
 import gridsPng from '../../data/grids-png';
 import './SelectGrid.css'
@@ -10,18 +10,23 @@ class GridsList extends Component{
 
   GridListItems = grids.map( grid => {
     return (
-      <img key={grid} alt={grid} src={gridsPng[grid]} />
+      <LazyLoad className="GridList-item" key={grid} offsetVertical={100}>
+        <img alt={grid} src={gridsPng[grid]} />
+      </LazyLoad>
     )
   });
 
   render(){
     return(
-      <div onClick={this.props.close} className="GridList">
-        <div className="GridList-header">
-          <div className="GridList-closeButton" />
-        </div>
-        <div className="GridList-body">
-          {this.GridListItems}
+      <div className="GridList-container">
+        <div onClick={this.props.close} className="GridList">
+          <div className="GridList-header">
+            <h4 className="GridList-header-title">Select a Grid</h4>
+            <div className="GridList-header-closeButton" />
+          </div>
+          <div className="GridList-body">
+            {this.GridListItems}
+          </div>
         </div>
       </div>
     )
