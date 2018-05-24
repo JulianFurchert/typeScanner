@@ -1,10 +1,23 @@
-.Letter {
+
+.Letter-container{
   width: 80px;
   height: 80px;
-  border: 0.5px solid #191919;
+  border: 1px solid #ddd;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  padding: 8px;
+}
+
+.Letter-inner{
+  width: 100%;
+  height: 100%;
+}
+
+.Letter {
+  width: 100%;
+  height: 100%;
 }
 
 .Letter:hover {
-  background-color: #E4E4E4;
   cursor: pointer;
 }

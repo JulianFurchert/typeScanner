@@ -5,6 +5,11 @@ const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 
 class Alphabet extends Component{
 
+  // getRectSize(){
+  //   let rect = {width: 30, height: 20};
+  //   let number = 52;
+  // }
+
   renderLetters(alphabet, selectLetter, weight, setPreviewLetter){
     return letters.map( (lettername,index) => {
       return (

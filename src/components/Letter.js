@@ -30,7 +30,13 @@ class Letter extends Component {
   }
 
   render(){
-    return <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
+    return (
+      <div className="Letter-container">
+        <div className="Letter-inner">
+          <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
+        </div>
+      </div>
+    )
   }
 }
 

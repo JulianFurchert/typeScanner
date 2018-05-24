@@ -84,7 +84,7 @@
 }
 
 .GridList-item:hover{
-  background-color: ghostwhite;
+  background-color: #ddd;
 }
 
 .GridList-item img{

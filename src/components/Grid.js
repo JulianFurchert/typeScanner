@@ -9,7 +9,6 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.svg = React.createRef();
-    this.handleClick = this.handleClick.bind(this);
   }
 
   shouldComponentUpdate(){
@@ -18,12 +17,7 @@ class Grid extends Component {
 
   componentWillReceiveProps(newProps){
     if(newProps.zoom !== this.props.zoom || newProps.xPos !== this.props.xPos ||  newProps.yPos !== this.props.yPos ){
-      let zoom = baseScale * newProps.zoom;
-      let xZoomShift = ( 1100 * newProps.zoom - 1100 ) / -2;
-      let yZoomShift = ( 1400 * newProps.zoom - 1400 ) / -2;
-      let xShift = xZoomShift + (newProps.xPos * zoom);
-      let yShift = yZoomShift + (newProps.yPos * zoom);
-      this.grid.transform(`t${xShift} ${yShift} s${zoom} 0 0`);
+      this.tranformGrid(newProps.zoom, newProps.xPos, newProps.yPos);
     }
     if(newProps.grid  !== this.props.grid ) {
       this.loadGrid(gridsSvg[newProps.grid]);
@@ -32,7 +26,7 @@ class Grid extends Component {
 
   componentDidMount(){
     this.initSnap(this.svg.current);
-    this.props.setGrid("gi-dt-002");
+    this.props.setGrid("gi-dt-001");
   }
 
   initSnap(element){
@@ -53,16 +47,22 @@ class Grid extends Component {
         "stroke-linecap": "square",
         "stroke-miterlimit": "3.239",
       });
-      this.grid.transform(`s${baseScale * this.props.zoom} 0 0`);
+      this.tranformGrid(this.props.zoom, this.props.xPos, this.props.yPos);
     });
   }
 
-  handleClick(){
+  tranformGrid(zoom, xPos, yPos){
+    let totalZoom = baseScale * zoom;
+    let xZoomShift = ( 1100 * zoom - 1100 ) / -2;
+    let yZoomShift = ( 1400 * zoom - 1400 ) / -2;
+    let xShift = xZoomShift + (xPos * totalZoom);
+    let yShift = yZoomShift + (yPos * totalZoom);
+    this.grid.transform(`t${xShift} ${yShift} s${totalZoom} 0 0`);
   }
 
   render(){
     return(
-      <svg onClick={this.handleClick} ref={this.svg} className="Grid"  />
+      <svg ref={this.svg} className="Grid"  />
     )
   }
 }

@@ -29,7 +29,7 @@ class Menu extends Component {
           <Slider
             name={"zoom"}
             min={1} max={20}
-            defaultValue={1}
+            defaultValue={this.props.gridSetting.zoom}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
@@ -37,7 +37,7 @@ class Menu extends Component {
           <Slider
             name={"xPos"}
             min={-20} max={+20}
-            defaultValue={0}
+            defaultValue={this.props.gridSetting.xPos}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
@@ -45,7 +45,7 @@ class Menu extends Component {
           <Slider
             name={"yPos"}
             min={-20} max={+20}
-            defaultValue={0}
+            defaultValue={this.props.gridSetting.yPos}
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
@@ -53,7 +53,7 @@ class Menu extends Component {
           <Slider
             name={"Weight"}
             min={20} max={80}
-            defaultValue={40}
+            defaultValue={this.props.fontWeight}
             onChange={this.updateWeight}
           />
           <SelectGrid name={"Grid"} />

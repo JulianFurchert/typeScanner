@@ -16,11 +16,11 @@ export class Provider extends Component {
     loading: true,
     alphabet: initialAlphabet,
     previewLetter: "A",
-    fontWeight: 20,
+    fontWeight: 40,
     grid: null,
     gridJson: [],
     gridSetting: {
-      zoom: 4,
+      zoom: 6,
       xPos: 0,
       yPos: 0
     }
@@ -65,8 +65,8 @@ export class Provider extends Component {
     })
   }
 
-  setFontWeight = weight => {
-    this.setState({ weight})
+  setFontWeight = fontWeight => {
+    this.setState({ fontWeight})
   }
 
   render(){

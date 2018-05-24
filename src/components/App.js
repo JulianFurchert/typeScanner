@@ -24,6 +24,8 @@ class App extends Component {
             </div>
             <div className= "App-menu">
               <Menu
+                fontWeight={fontWeight}
+                gridSetting={gridSetting}
                 setGridSetting={setGridSetting}
                 setFontWeight={setFontWeight}
                 renderAlphabet={renderAlphabet}
