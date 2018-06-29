@@ -30,6 +30,8 @@ class App extends Component {
                 setFontWeight={setFontWeight}
                 renderAlphabet={renderAlphabet}
                 resetAlphabet={resetAlphabet}
+                letter={alphabet[previewLetter]}
+                alphabet={alphabet}
               />
             </div>
           </div>

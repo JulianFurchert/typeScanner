@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import createFont from '../helper/createFont';
 import Slider from './controls/Slider';
 import Button from './controls/Button';
 import SelectGrid from './controls/SelectGrid';
@@ -10,6 +11,7 @@ class Menu extends Component {
     super(props);
     this.updateGridSetting = this.updateGridSetting.bind(this);
     this.updateWeight = this.updateWeight.bind(this);
+    this.startCreatingFont = this.startCreatingFont.bind(this);
   }
 
   updateGridSetting(key, value){
@@ -20,6 +22,10 @@ class Menu extends Component {
 
   updateWeight(key, value){
     this.props.setFontWeight(value);
+  }
+
+  startCreatingFont(){
+    createFont(this.props.letter, this.props.alphabet);
   }
 
   render(){
@@ -58,7 +64,7 @@ class Menu extends Component {
           />
           <SelectGrid name={"Grid"} />
         </div>
-        <Button name={"Export"} />
+        <Button onClick={this.startCreatingFont} name={"Export"} />
       </div>
     )
   }

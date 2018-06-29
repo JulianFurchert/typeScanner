@@ -13,7 +13,9 @@
     "react-scripts": "1.1.4",
     "react-scroll-to-component": "^1.0.2",
     "snapsvg-cjs": "0.0.6",
-    "svg-path-outline": "^1.0.1"
+    "svg-arc-to-cubic-bezier": "^3.1.0",
+    "svg-path-outline": "^1.0.1",
+    "svg-path-parser": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
