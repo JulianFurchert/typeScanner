@@ -1,6 +1,6 @@
 import svgToLetterPath from './svgToLetterPath';
 import createSvgPath from './createSvgPath';
-const opentype = require('opentype.js');
+const opentype = require('opentype.js/dist/opentype.min.js');
 const letterNames = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z'];
 
 const createFont = (letter, alphabet) => {

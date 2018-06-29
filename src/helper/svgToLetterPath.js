@@ -1,7 +1,7 @@
 import arcToBezier from 'svg-arc-to-cubic-bezier';
 import _ from 'lodash';
 import parseSVG from 'svg-path-parser';
-let opentype = require('opentype.js')
+const opentype = require('opentype.js/dist/opentype.min.js');
 
 _.rename = (obj, key, newKey) => {
   if(_.includes(_.keys(obj), key)) {
