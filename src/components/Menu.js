@@ -25,7 +25,7 @@ class Menu extends Component {
   }
 
   startCreatingFont(){
-    createFont(this.props.letter, this.props.alphabet);
+    createFont(this.props.letter, this.props.alphabet, this.props.fontWeight);
   }
 
   render(){

@@ -2,8 +2,9 @@ import svgToLetterPath from './svgToLetterPath';
 import createSvgPath from './createSvgPath';
 const opentype = require('opentype.js/dist/opentype.min.js');
 const letterNames = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z'];
+const spacing = 50;
 
-const createFont = (letter, alphabet) => {
+const createFont = (letter, alphabet, fontWeight) => {
   let glyphs = [];
 
   var notdefGlyph = new opentype.Glyph({
@@ -15,13 +16,12 @@ const createFont = (letter, alphabet) => {
   glyphs.push(notdefGlyph);
 
   letterNames.forEach( name => {
-    let path = createSvgPath( alphabet[name] );
-    let letterPath = svgToLetterPath(path);
-
+    let {data, width, height} = createSvgPath(alphabet[name], fontWeight);
+    let letterPath = svgToLetterPath(data);
     let glyph = new opentype.Glyph({
       name: name,
       unicode: name.charCodeAt(0),
-      advanceWidth: 650,
+      advanceWidth: parseInt(width, 10) + spacing,
       path: letterPath
     });
 

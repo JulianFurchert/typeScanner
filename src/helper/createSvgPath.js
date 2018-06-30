@@ -22,25 +22,27 @@ const arrayToPath = arr => {
   return string;
 }
 
-const createSvgPath = (letterArray) => {
-  let letterModels = [];
 
+const createSvgPath = (letterArray, fontWeight) => {
+  let letterModels = [];
   letterArray.forEach(pathArray => {
     pathArray = removeDoublePoints(pathArray);
     let points = arrayToPath(pathArray);
     let model = new makerjs.models.ConnectTheDots(false, points);
-    let expand = makerjs.model.expandPaths(model, 10);
+    let expand = makerjs.model.expandPaths(model, fontWeight/2, 0);
     letterModels.push(expand);
   });
 
   let letter = { models: letterModels };
   makerjs.model.combineUnion(letter.models[0], letter.models[1]);
 
-  let svg = makerjs.exporter.toSVG(letter);
+  let svg = makerjs.exporter.toSVG(letter, {fillRule: 'nonzero'});
   let xmlSvg = parser.parseFromString(svg,"text/xml");
+  let width = xmlSvg.children[0].getAttribute("width");
+  let height = xmlSvg.children[0].getAttribute("height");
   let data = xmlSvg.getElementById("svgGroup").childNodes[0].getAttribute("d");
 
-  return data;
+  return {data, width, height};
 }
 
 export default createSvgPath;
