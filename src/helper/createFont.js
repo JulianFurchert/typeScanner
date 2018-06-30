@@ -4,10 +4,10 @@ const opentype = require('opentype.js/dist/opentype.min.js');
 const letterNames = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z'];
 const spacing = 50;
 
-const createFont = (letter, alphabet, fontWeight) => {
+const createBasicCharakter = () =>{
   let glyphs = [];
 
-  var notdefGlyph = new opentype.Glyph({
+  let notdefGlyph = new opentype.Glyph({
     name: '.notdef',
     unicode: 0,
     advanceWidth: 650,
@@ -15,16 +15,29 @@ const createFont = (letter, alphabet, fontWeight) => {
   });
   glyphs.push(notdefGlyph);
 
+  let spaceGlyph = new opentype.Glyph({
+    name: 'space',
+    unicode: 32,
+    advanceWidth: 248,
+    path: new opentype.Path()
+  });
+  glyphs.push(spaceGlyph);
+
+  return glyphs;
+}
+
+const createFont = (letter, alphabet, fontWeight) => {
+  let glyphs = createBasicCharakter();
+
   letterNames.forEach( name => {
     let {data, width, height} = createSvgPath(alphabet[name], fontWeight);
     let letterPath = svgToLetterPath(data);
     let glyph = new opentype.Glyph({
       name: name,
       unicode: name.charCodeAt(0),
-      advanceWidth: parseInt(width, 10) + spacing,
+      advanceWidth: parseInt(width, 10) + spacing*2,
       path: letterPath
     });
-
     glyphs.push(glyph);
   });
 

@@ -9,6 +9,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .Menu-settings {
