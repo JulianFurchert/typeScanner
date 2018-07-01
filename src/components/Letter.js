@@ -12,26 +12,23 @@ class Letter extends Component {
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
-    this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions.bind(this));
-  }
-
-  componentWillUnmount(){
-    // window.removeEventListener("resize",this.updateDimensions.bind(this));
-  }
-
-  updateDimensions(){
-    let width = this.svg.current.getBoundingClientRect().width;
-    this.svg.current.style.height = width;
   }
 
   handleClick(){
     this.props.setPreviewLetter(this.props.letterName);
   }
 
+  componentWillReceiveProps(next){
+    console.log(next);
+  }
+
   render(){
+    var style = {
+      height: this.props.letterWidth,
+      width: this.props.letterWidth,
+    };
     return (
-      <div className="Letter-container">
+      <div  className="Letter-container">
         <div className="Letter-inner">
           <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
         </div>

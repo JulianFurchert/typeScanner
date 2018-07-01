@@ -26,7 +26,7 @@ const createBasicCharakter = () =>{
   return glyphs;
 }
 
-const createFont = (letter, alphabet, fontWeight) => {
+const createFont = async (letter, alphabet, fontWeight) => {
   let glyphs = createBasicCharakter();
 
   letterNames.forEach( name => {

@@ -1,26 +1,3 @@
-.SelectGrid-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  width: 160px;
-}
-
-.SelectGrid-container:after{
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-image: url(../../data/icons/icon_select.svg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.SelectGrid-name {
-  display: inline-block;
-  margin: 0 8px;
-}
-
 .GridList-container{
   position: fixed;
   top: 0;
@@ -53,22 +30,6 @@
   font-size: 16px;
   line-height: 32px;
   margin: 0;
-}
-
-.GridList-header-closeButton{
-  width: 32px;
-  height: 32px;
-  background-color: white;
-  background-image: url(../../data/icons/icon_close.svg);
-  background-size: 80% 80%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-}
-
-.GridList-header-closeButton:hover{
-  background-color: #ddd;
 }
 
 .GridList-body{

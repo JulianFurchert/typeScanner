@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import createFont from '../helper/createFont';
 import Slider from './controls/Slider';
 import Button from './controls/Button';
-import SelectGrid from './controls/SelectGrid';
+import GridList from './Gridlist';
+import openIcon from '../data/icons/icon_select.svg'
 import './Menu.css';
+
 
 class Menu extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      gridListOpen: false,
+      loadingFont: false,
+    }
+
     this.updateGridSetting = this.updateGridSetting.bind(this);
     this.updateWeight = this.updateWeight.bind(this);
     this.startCreatingFont = this.startCreatingFont.bind(this);
+    this.openGridList = this.openGridList.bind(this);
+    this.closeGridList = this.closeGridList.bind(this);
   }
 
   updateGridSetting(key, value){
@@ -24,16 +33,27 @@ class Menu extends Component {
     this.props.setFontWeight(value);
   }
 
+  openGridList(){
+    this.setState({ gridListOpen : true })
+  }
+
+  closeGridList(){
+    this.setState({ gridListOpen : false })
+  }
+
   startCreatingFont(){
+    this.setState({loadingFont: true})
     createFont(this.props.letter, this.props.alphabet, this.props.fontWeight);
+    this.setState({loadingFont: false})
   }
 
   render(){
     return (
       <div className="Menu">
+        { this.state.gridListOpen ? <GridList close={this.closeGridList} /> : null }
         <div className="Menu-settings">
           <Slider
-            name={"zoom"}
+            name="zoom"
             min={1} max={20}
             defaultValue={this.props.gridSetting.zoom}
             onBeforeChange={this.props.resetAlphabet}
@@ -41,7 +61,7 @@ class Menu extends Component {
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"xPos"}
+            name="xPos"
             min={-20} max={+20}
             defaultValue={this.props.gridSetting.xPos}
             onBeforeChange={this.props.resetAlphabet}
@@ -49,7 +69,7 @@ class Menu extends Component {
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"yPos"}
+            name="yPos"
             min={-20} max={+20}
             defaultValue={this.props.gridSetting.yPos}
             onBeforeChange={this.props.resetAlphabet}
@@ -57,14 +77,23 @@ class Menu extends Component {
             onAfterChange={this.props.renderAlphabet}
           />
           <Slider
-            name={"Weight"}
+            name="Weight"
             min={20} max={80}
             defaultValue={this.props.fontWeight}
             onChange={this.updateWeight}
           />
-          <SelectGrid name={"Grid"} />
+          <Button
+            large
+            name="Grid"
+            icon={openIcon}
+            onClick={this.openGridList}
+          />
         </div>
-        <Button onClick={this.startCreatingFont} name={"Export"} />
+        <Button
+          name="Export"
+          loading={this.state.loadingFont}
+          onClick={this.startCreatingFont}
+        />
       </div>
     )
   }

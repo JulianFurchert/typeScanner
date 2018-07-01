@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.10",
     "opentype.js": "^0.8.0",
     "rc-slider": "^8.6.1",
