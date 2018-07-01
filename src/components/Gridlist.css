@@ -1,37 +1,3 @@
-.GridList-container{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 300;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-color: rgba(50,50,50,0.3)
-}
-
-.GridList{
-  background-color: white;
-  width: calc(100vw - 32px);
-  max-width: 1248px;
-  margin: 16px auto;
-  border-radius: 16px;
-}
-
-.GridList-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
-}
-
-.GridList-header-title{
-  font-size: 16px;
-  line-height: 32px;
-  margin: 0;
-}
-
 .GridList-body{
   display: flex;
   flex-direction: row;

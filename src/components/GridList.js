@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import { Consumer } from "../context";
 import LazyLoad from 'react-lazy-load';
-import Button from './controls/Button';
+import Modal from './Modal';
 import grids from '../data/gridList(old).json';
 import gridsPng from '../data/grids-png';
-import closeIcon from '../data/icons/icon_close.svg';
 import './Gridlist.css'
 
 
@@ -47,21 +46,11 @@ class GridsList extends Component{
     return(
       <Consumer>
       { ({ setGrid }) => (
-        <div className="GridList-container">
-          <div className="GridList">
-            <div className="GridList-header">
-              <h4 className="GridList-header-title">Select a Grid</h4>
-              <Button
-                circle
-                icon={closeIcon}
-                onClick={this.props.close}
-              />
-            </div>
-            <div className="GridList-body">
-              {this.listItems(setGrid)}
-            </div>
+        <Modal title="Grids" close={this.props.close}>
+          <div className="GridList-body">
+            {this.listItems(setGrid)}
           </div>
-        </div>
+        </Modal>
       )}
       </Consumer>
     )

@@ -31,10 +31,3 @@
   line-height: 32px;
   margin: 0;
 }
-
-.Modal-body{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
