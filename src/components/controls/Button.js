@@ -10,7 +10,7 @@ class Button extends Component {
       'Button-space-between': icon && name,
       'Button-large': large,
       'Button-circle': circle,
-      'Butoon-loading': loading,
+      'Button-loading': loading,
     });
     return (
       <div onClick={this.props.onClick} className={btnClass}>

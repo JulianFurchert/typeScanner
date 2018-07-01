@@ -21,6 +21,7 @@ class Menu extends Component {
     this.startCreatingFont = this.startCreatingFont.bind(this);
     this.openGridList = this.openGridList.bind(this);
     this.closeGridList = this.closeGridList.bind(this);
+    this.toggleLoading = this.toggleLoading.bind(this);
   }
 
   updateGridSetting(key, value){
@@ -41,10 +42,16 @@ class Menu extends Component {
     this.setState({ gridListOpen : false })
   }
 
+  toggleLoading(){
+    this.setState(prevState => ({
+      loadingFont: !prevState.loadingFont
+    }));
+  }
+
   startCreatingFont(){
-    this.setState({loadingFont: true})
+    this.setState({loadingFont: true}, () =>{});
     createFont(this.props.letter, this.props.alphabet, this.props.fontWeight);
-    this.setState({loadingFont: false})
+    this.setState({loadingFont: false});
   }
 
   render(){
