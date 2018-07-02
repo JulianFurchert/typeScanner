@@ -30,7 +30,7 @@ const createFont = (letter, alphabet, fontWeight) => {
   let glyphs = createBasicCharakter();
 
   letterNames.forEach( name => {
-    let {data, width, height} = createSvgPath(alphabet[name], fontWeight);
+    let {data, width} = createSvgPath(alphabet[name], fontWeight);
     let letterPath = svgToLetterPath(data);
     let glyph = new opentype.Glyph({
       name: name,

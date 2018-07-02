@@ -7,11 +7,13 @@
   z-index: 300;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(50,50,50,0.3);
+  background-color: #f2f2f2;
   display: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .Modal{
+  position: relative;
   background-color: white;
   width: calc(100vw - 32px);
   max-width: 1248px;
@@ -23,8 +25,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 8px 24px;
   border-bottom: 1px solid #ddd;
+}
+
+.Modal-no-header{
+  position: fixed;
+  text-align: left;
+  z-index: 500;
+  right: 16px;
+  padding: 8px 16px;
 }
 
 .Modal-header-title{

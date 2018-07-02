@@ -19,7 +19,7 @@ class Modal extends Component {
   updateScrollPosition(){
     let elmnt = document.getElementById(this.props.scrollTo);
     elmnt.scrollIntoView();
-    this.modalContainer.current.scrollBy(0, -56);
+    this.modalContainer.current.scrollBy(0, -100);
   }
 
   modal(){
@@ -42,14 +42,25 @@ class Modal extends Component {
           }}
         >
           <div className="Modal">
-            <div className="Modal-header">
-              <h4 className="Modal-header-title">{this.props.title}</h4>
-              <Button
-                circle
-                icon={closeIcon}
-                onClick={this.props.close}
-              />
-            </div>
+            { this.props.header ? (
+              <div className="Modal-header">
+                <h4 className="Modal-header-title">{this.props.title}</h4>
+                <Button
+                  circle
+                  icon={closeIcon}
+                  onClick={this.props.close}
+                />
+              </div>
+            ) : (
+              <div className="Modal-no-header">
+                <Button
+                  circle
+                  large
+                  icon={closeIcon}
+                  onClick={this.props.close}
+                />
+              </div>
+            )}
             <div className="Modal-body">
               {this.props.children}
             </div>

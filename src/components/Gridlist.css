@@ -1,6 +1,6 @@
 
 .GridList-categorie{
-  margin: 16px 0 32px;
+  margin: 0 0 16px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -9,9 +9,12 @@
 
 .GridList-categorie-title{
   width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0 8px;
 }
 
 .GridList-item{
+  position: relative;
   width: calc(25% - 16px);
   margin: 16px 0;
   border: 1px solid #ddd;
@@ -20,13 +23,30 @@
   overflow: hidden;
 }
 
+.GridList-item-title{
+  transform: translateY(-10px);
+  opacity: 0;
+  position: absolute;
+  top:4px;
+  left: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #f2f2f2;
+  border-radius: 16px;
+}
+
+.GridList-item-selected .GridList-item-title,
+.GridList-item:hover .GridList-item-title{
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 100ms;
+}
+
 .GridList-item-selected{
   box-shadow: 4px 4px 0 2px #f2f2f2;
 }
 
 .GridList-item:hover{
-  transition: all 250ms ease-out;
-  box-shadow: none;
   cursor: pointer;
 }
 

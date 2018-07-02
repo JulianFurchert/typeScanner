@@ -2,10 +2,10 @@
 const calcSize = (number, width, height) => {
 
   let area = height * width;
-  let elementArea = parseInt(area / number);
+  let elementArea = parseInt(area / number, 10);
 
   // Calculate side length if there is no "spill":
-  let sideLength = parseInt(Math.sqrt(elementArea));
+  let sideLength = parseInt(Math.sqrt(elementArea),10);
 
   // We now need to fit the squares. Let's reduce the square size
   // so an integer number fits the width.

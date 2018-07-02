@@ -10,6 +10,7 @@ class Button extends Component {
       'Button-space-between': icon && name,
       'Button-large': large,
       'Button-circle': circle,
+      'Button-circle-large': circle && large,
       'Button-loading': loading,
     });
     return (

@@ -4,6 +4,7 @@
   justify-content:center;
   cursor: pointer;
   width: 120px;
+  background-color: white;
 }
 
 .Button-space-between {
@@ -16,6 +17,17 @@
 
 .Button-circle {
   width: 32px;
+}
+
+.Button-circle-large {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.Button-circle-large .Button-icon {
+  width: 28px;
+  height: 28px;
 }
 
 .Button-name{

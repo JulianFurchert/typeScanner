@@ -27,6 +27,7 @@ class GridsList extends Component{
       });
       return (
         <div key={grid} className={style} id={grid} >
+          <div class="GridList-item-title">{grid}</div>
           <LazyLoad height={200} offsetVertical={600}>
             <img onClick={ () => this.handleClick(grid)} alt={grid} src={gridsPng[grid]} />
           </LazyLoad>
@@ -53,7 +54,6 @@ class GridsList extends Component{
       <Modal
         ref={this.model}
         title="Grids"
-        header="fixed"
         open={this.props.open}
         close={this.props.close}
         scrollTo={this.props.selectedGrid}
