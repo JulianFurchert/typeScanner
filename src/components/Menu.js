@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import createFont from '../helper/createFont';
 import Slider from './controls/Slider';
 import Button from './controls/Button';
@@ -15,7 +16,6 @@ class Menu extends Component {
       gridListOpen: false,
       loadingFont: false,
     }
-
     this.updateGridSetting = this.updateGridSetting.bind(this);
     this.updateWeight = this.updateWeight.bind(this);
     this.startCreatingFont = this.startCreatingFont.bind(this);
@@ -39,6 +39,7 @@ class Menu extends Component {
   }
 
   closeGridList(){
+    console.log("test");
     this.setState({ gridListOpen : false })
   }
 
@@ -57,7 +58,7 @@ class Menu extends Component {
   render(){
     return (
       <div className="Menu">
-        { this.state.gridListOpen ? <GridList close={this.closeGridList} /> : null }
+        <GridList open={this.state.gridListOpen} setGrid={this.props.setGrid} close={this.closeGridList} />
         <div className="Menu-settings">
           <Slider
             name="zoom"

@@ -26,6 +26,7 @@ class App extends Component {
               <Menu
                 fontWeight={fontWeight}
                 gridSetting={gridSetting}
+                setGrid={setGrid}
                 setGridSetting={setGridSetting}
                 setFontWeight={setFontWeight}
                 renderAlphabet={renderAlphabet}

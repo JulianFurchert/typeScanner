@@ -7,52 +7,34 @@ import gridsPng from '../data/grids-png';
 import './Gridlist.css'
 
 
-class GridListItems extends Component{
-
+class GridsList extends Component{
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
-    this.props.setGrid(this.props.grid);
+  handleClick(grid){
+    this.props.setGrid(grid);
     this.props.close();
   }
-
-  render(){
-    let grid = this.props.grid;
-    return (
-      <LazyLoad id={grid} className="GridList-item" offsetVertical={100}>
-        <img onClick={this.handleClick} alt={grid} src={gridsPng[grid]} />
-      </LazyLoad>
-    )
-  }
-}
-
-class GridsList extends Component{
 
   listItems(setGrid){
     return grids.map( grid => {
       return (
-        <GridListItems key={grid}
-        close={this.props.close}
-        setGrid={setGrid} grid={grid}
-        />
+        <LazyLoad key={grid} id={grid} className="GridList-item" offsetVertical={100}>
+          <img onClick={ () => this.handleClick(grid)} alt={grid} src={gridsPng[grid]} />
+        </LazyLoad>
       )
     })
   }
 
   render(){
     return(
-      <Consumer>
-      { ({ setGrid }) => (
-        <Modal title="Grids" close={this.props.close}>
-          <div className="GridList-body">
-            {this.listItems(setGrid)}
-          </div>
-        </Modal>
-      )}
-      </Consumer>
+      <Modal open={this.props.open} title="Grids" close={this.props.close}>
+        <div className="GridList-body">
+          {this.listItems()}
+        </div>
+      </Modal>
     )
   }
 }
