@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .GridList-categorie-title{
@@ -12,6 +11,7 @@
   border-bottom: 1px solid #ddd;
   padding: 16px 0 8px;
   display: flex;
+  font-size: 16px;
 }
 
 .GridList-categorie-title div{
@@ -20,12 +20,19 @@
 
 .GridList-item{
   position: relative;
-  width: calc(25% - 16px);
-  margin: 16px 0;
+  width: calc(25% - 32px);
+  margin: 16px;
   border: 1px solid #ddd;
   box-shadow: none;
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
+  flex-shrink: 1;
+}
+
+.GridList-item-selected,
+.GridList-item:hover {
+  border-radius: 16px;
+  transition: all 100ms;
 }
 
 .GridList-item-title{
@@ -36,20 +43,18 @@
   left: 4px;
   padding: 4px 8px;
   font-size: 12px;
-  background-color: #ddd;
+  background-color: #484848;
   border-radius: 16px;
+  color: white;
 }
 
-.GridList-item-selected .GridList-item-title,
-.GridList-item:hover .GridList-item-title{
+.GridList-item-selected .GridList-item-title{
   transform: translateY(0);
   opacity: 1;
   transition: all 100ms;
 }
 
-.GridList-item-selected{
-  /* box-shadow: 4px 4px 0 2px #f2f2f2; */
-}
+
 
 .GridList-item:hover{
   cursor: pointer;
