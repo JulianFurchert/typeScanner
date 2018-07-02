@@ -60,7 +60,7 @@ class Menu extends Component {
           close={this.closeGridList}
           open={this.state.gridListOpen}
           setGrid={this.props.setGrid}
-          scrollTo={this.props.grid}
+          selectedGrid={this.props.grid}
         />
         <div className="Menu-settings">
           <Slider

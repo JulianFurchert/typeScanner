@@ -15,9 +15,13 @@
   width: calc(25% - 16px);
   margin: 16px 0;
   border: 1px solid #ddd;
-  box-shadow: 4px 4px 0 2px rgba(0,0,0,0.1);
+  box-shadow: none;
   border-radius: 16px;
   overflow: hidden;
+}
+
+.GridList-item-selected{
+  box-shadow: 4px 4px 0 2px #f2f2f2;
 }
 
 .GridList-item:hover{

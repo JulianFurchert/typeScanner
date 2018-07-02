@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import LazyLoad from 'react-lazy-load';
 import Modal from './Modal';
+import classNames from 'classnames';
 import gridList from '../data/gridList.json';
 import gridsPng from '../data/grids-png';
 import './Gridlist.css'
@@ -21,9 +22,12 @@ class GridsList extends Component{
 
   listItems(grids){
     return grids.map( grid => {
+      let style = classNames('GridList-item',{
+        'GridList-item-selected': grid === this.props.selectedGrid
+      });
       return (
-        <div key={grid} className="GridList-item" id={grid} >
-          <LazyLoad height={200} offsetVertical={100}>
+        <div key={grid} className={style} id={grid} >
+          <LazyLoad height={200} offsetVertical={600}>
             <img onClick={ () => this.handleClick(grid)} alt={grid} src={gridsPng[grid]} />
           </LazyLoad>
         </div>
@@ -52,7 +56,7 @@ class GridsList extends Component{
         header="fixed"
         open={this.props.open}
         close={this.props.close}
-        scrollTo={this.props.scrollTo}
+        scrollTo={this.props.selectedGrid}
       >
         <div ref={this.body} className="GridList-body">
           {this.listCategories()}

@@ -8,6 +8,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   background-color: rgba(50,50,50,0.3);
+  display: none;
 }
 
 .Modal{
@@ -37,12 +38,17 @@
 }
 
 .modal-container-enter {
+  display: block;
   opacity: 0;
 }
 
 .modal-container-enter-active {
   opacity: 1;
   transition: all 200ms ease-out;
+}
+
+.modal-container-enter-done {
+  display: block;
 }
 
 .modal-container-exit {
