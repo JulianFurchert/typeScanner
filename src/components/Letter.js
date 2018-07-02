@@ -19,12 +19,13 @@ class Letter extends Component {
   }
 
   componentWillReceiveProps(next){
+    console.log("new");
     console.log(next);
   }
 
   render(){
     return (
-      <div  className="Letter-container">
+      <div className="Letter-container" >
         <div className="Letter-inner">
           <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
         </div>

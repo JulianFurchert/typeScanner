@@ -1,14 +1,19 @@
-.PreviewLetter {
+.PreviewLetter-container {
   position: relative;
-  width: 100%;
   height: 100%;
-  border-radius: 16px;
 }
 
-.SelectedLetter {
+.PreviewLetter {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.PreviewLetter-placeholder{
+  position: relative;
+  opacity: 0;
+  height: 100%;
+  widows: auto;
 }
 

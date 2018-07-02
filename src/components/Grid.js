@@ -46,6 +46,7 @@ class Grid extends Component {
         "stroke-width": "0.1",
         "stroke-linecap": "square",
         "stroke-miterlimit": "3.239",
+        "vector-effect": "non-scaling-stroke"
       });
       this.tranformGrid(this.props.zoom, this.props.xPos, this.props.yPos);
     });

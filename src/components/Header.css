@@ -1,0 +1,22 @@
+.Header{
+  height:40px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: #7b7b7b;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.Header-information{
+  display: flex;
+  flex-direction: row;
+}
+
+.Header-information div{
+  margin: 0 6px;
+}
+
+.Header-about{
+  margin: 0 6px;
+}

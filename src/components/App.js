@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Consumer } from "../context";
+import Header from './Header';
 import Alphabet from './Alphabet';
 import PreviewLetter from './PreviewLetter';
 import Grid from './Grid';
@@ -13,6 +14,7 @@ class App extends Component {
       <Consumer>
         {({ alphabet, renderAlphabet, resetAlphabet, previewLetter, setPreviewLetter, fontWeight, setFontWeight, grid, setGrid, gridSetting, setGridSetting }) => (
           <div className="App">
+            <Header weight={fontWeight} grid={grid} gridSetting={gridSetting}  />
             <div className= "App-main">
               <Artboard artboard="previewLetter" >
                 <PreviewLetter weight={fontWeight} animateTime={400} viewbox={"0 0 1100 1400"} letterName={previewLetter} letter={alphabet[previewLetter]} />

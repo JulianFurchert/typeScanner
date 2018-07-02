@@ -6,8 +6,8 @@
 .App-main {
   position: relative;
   width: 100%;
-  height: calc( 100vh - 72px );
-  padding: 24px;
+  height: calc( 100vh - 112px );
+  padding: 12px 24px 24px;
   overflow: hidden;
   display: flex;
   flex-direction: row;

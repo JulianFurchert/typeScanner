@@ -27,7 +27,7 @@ class GridsList extends Component{
       });
       return (
         <div key={grid} className={style} id={grid} >
-          <div class="GridList-item-title">{grid}</div>
+          <div className="GridList-item-title">{grid}</div>
           <LazyLoad height={200} offsetVertical={600}>
             <img onClick={ () => this.handleClick(grid)} alt={grid} src={gridsPng[grid]} />
           </LazyLoad>
@@ -41,7 +41,8 @@ class GridsList extends Component{
       return (
         <div key={categorie.name + " " + index} className="GridList-categorie" >
           <div className="GridList-categorie-title">
-            {categorie.name}
+            <div>{categorie.name}</div>
+            <div>{` (${categorie.grids.length})`}</div>
           </div>
           {this.listItems(categorie.grids)}
         </div>

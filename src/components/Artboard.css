@@ -1,6 +1,6 @@
 .Artboard{
   position: relative;
-  height: calc( 100vh - (72px + 48px));
+  height: 100%;
   border: 1px solid #ddd;
   border-radius: 16px;
   overflow: hidden;
@@ -9,8 +9,8 @@
 }
 
 .Artboard.previewLetter{
-  width: calc( (100vh - 120px) * 0.78 );
   flex-shrink: 0;
+  padding: 0;
   margin-right: 16px;
 }
 
