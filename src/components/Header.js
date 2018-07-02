@@ -1,11 +1,6 @@
 import React from 'react';
 import './Header.css';
 
-function pad(num, size) {
-  var s = "000000000" + num;
-  return s.substr(s.length-size);
-}
-
 const Header = props => {
   return(
     <div className="Header">

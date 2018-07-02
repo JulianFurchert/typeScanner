@@ -18,11 +18,6 @@ class Letter extends Component {
     this.props.setPreviewLetter(this.props.letterName);
   }
 
-  componentWillReceiveProps(next){
-    console.log("new");
-    console.log(next);
-  }
-
   render(){
     return (
       <div className="Letter-container" >

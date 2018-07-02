@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Letter from './Letter';
-import calcSize from '../helper/calcSize';
 import './Alphabet.css';
 const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"]
 const squareSize = 50;
@@ -45,7 +44,6 @@ class Alphabet extends Component{
     return letters.map( (lettername,index) => {
       return (
         <Letter
-          size={this.state.letterSize}
           weight={weight}
           key={index}
           viewbox={"0 0 1100 1000"}
