@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import createFont from '../helper/createFont';
 import Slider from './controls/Slider';
 import Button from './controls/Button';
-import GridList from './Gridlist';
+import GridList from './GridList';
+import createFont from '../helper/createFont';
 import openIcon from '../data/icons/icon_select.svg'
 import './Menu.css';
 
