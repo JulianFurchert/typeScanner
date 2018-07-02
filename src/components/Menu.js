@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import createFont from '../helper/createFont';
 import Slider from './controls/Slider';
 import Button from './controls/Button';
@@ -39,7 +38,6 @@ class Menu extends Component {
   }
 
   closeGridList(){
-    console.log("test");
     this.setState({ gridListOpen : false })
   }
 
@@ -58,7 +56,12 @@ class Menu extends Component {
   render(){
     return (
       <div className="Menu">
-        <GridList open={this.state.gridListOpen} setGrid={this.props.setGrid} close={this.closeGridList} />
+        <GridList
+          close={this.closeGridList}
+          open={this.state.gridListOpen}
+          setGrid={this.props.setGrid}
+          scrollTo={this.props.grid}
+        />
         <div className="Menu-settings">
           <Slider
             name="zoom"

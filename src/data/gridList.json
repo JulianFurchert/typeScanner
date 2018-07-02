@@ -1,6 +1,6 @@
 [
   {
-    "categorie": "orthogonal grid",
+    "name": "orthogonal grid",
     "grids" : [
       "gi-og-001",
       "gi-og-002",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "categorie": "logaritmic grid",
+    "name": "logaritmic grid",
     "grids" : [
       "gi-og-025",
       "gi-og-026",
@@ -37,7 +37,7 @@
     ]
   },
   {
-    "categorie": "regular tiling",
+    "name": "regular tiling",
     "grids" : [
       "gi-rt-001",
       "gi-rt-002",
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "categorie": "semiregular tiling",
+    "name": "semiregular tiling",
     "grids" : [
       "gi-st-001",
       "gi-st-002",
@@ -58,7 +58,7 @@
     ]
   },
   {
-    "categorie": "tiling variation",
+    "name": "tiling variation",
     "grids" : [
       "gi-va-001",
       "gi-va-002",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 2 uniform tilings",
+    "name": "demiregular tiling k2 = 2 uniform tilings",
     "grids" : [
       "gi-dt-001",
       "gi-dt-002",
@@ -104,7 +104,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 3 uniform tilings",
+    "name": "demiregular tiling k2 = 3 uniform tilings",
     "grids" : [
       "gi-dt-021",
       "gi-dt-022",
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 4 uniform tilings",
+    "name": "demiregular tiling k2 = 4 uniform tilings",
     "grids" : [
       "gi-dt-060",
       "gi-dt-061",
@@ -185,7 +185,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 5 uniform tilings",
+    "name": "demiregular tiling k2 = 5 uniform tilings",
     "grids" : [
       "gi-dt-093",
       "gi-dt-094",
@@ -205,7 +205,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 6 uniform tilings",
+    "name": "demiregular tiling k2 = 6 uniform tilings",
     "grids" : [
       "gi-dt-108",
       "gi-dt-109",
@@ -220,7 +220,7 @@
     ]
   },
   {
-    "categorie": "demiregular tiling k2 = 7 uniform tilings",
+    "name": "demiregular tiling k2 = 7 uniform tilings",
     "grids" : [
       "gi-dt-118",
       "gi-dt-119",
@@ -232,7 +232,7 @@
     ]
   },
   {
-    "categorie": "pentagonal tiling",
+    "name": "pentagonal tiling",
     "grids" : [
       "gi-pt-001",
       "gi-pt-002",
@@ -241,7 +241,7 @@
     ]
   },
   {
-    "categorie": "pentagonal tiling",
+    "name": "pentagonal tiling",
     "grids" : [
       "gi-pt-001",
       "gi-pt-002",
@@ -250,7 +250,7 @@
     ]
   },
   {
-    "categorie": "quasiperiodic tiling",
+    "name": "quasiperiodic tiling",
     "grids" : [
       "gi-qt-001",
       "gi-qt-002a",

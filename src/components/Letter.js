@@ -23,10 +23,6 @@ class Letter extends Component {
   }
 
   render(){
-    var style = {
-      height: this.props.letterWidth,
-      width: this.props.letterWidth,
-    };
     return (
       <div  className="Letter-container">
         <div className="Letter-inner">

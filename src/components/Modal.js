@@ -8,7 +8,20 @@ import './Modal.css';
 const modalRoot = document.getElementById('modal-root');
 
 
+
 class Modal extends Component {
+
+  constructor(props){
+    super(props);
+    this.modalContainer = React.createRef();
+  }
+
+  updateScrollPosition(){
+    let elmnt = document.getElementById(this.props.scrollTo);
+    elmnt.scrollIntoView();
+    this.modalContainer.current.scrollBy(0, -56);
+  }
+
   modal(){
     return(
       <CSSTransition
@@ -18,12 +31,15 @@ class Modal extends Component {
         classNames="modal-container"
       >
       { state => (
-        <div className="Modal-container">
+        <div ref={this.modalContainer} className="Modal-container">
         <CSSTransition
           unmountOnExit
           in={state === 'entered' || state === 'entering'}
           timeout={{ enter: 300, exit: 300 }}
           classNames="modal"
+          onEntered={() => {
+            this.updateScrollPosition();
+          }}
         >
           <div className="Modal">
             <div className="Modal-header">

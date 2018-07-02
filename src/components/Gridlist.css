@@ -1,17 +1,29 @@
-.GridList-body{
+
+.GridList-categorie{
+  margin: 16px 0 32px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.GridList-categorie-title{
+  width: 100%;
 }
 
 .GridList-item{
-  width: 30%;
-  margin: 20px 0;
+  width: calc(25% - 16px);
+  margin: 16px 0;
+  border: 1px solid #ddd;
+  box-shadow: 4px 4px 0 2px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .GridList-item:hover{
-  background-color: #ddd;
+  transition: all 250ms ease-out;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .GridList-item img{

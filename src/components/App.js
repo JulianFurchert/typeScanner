@@ -33,6 +33,7 @@ class App extends Component {
                 resetAlphabet={resetAlphabet}
                 letter={alphabet[previewLetter]}
                 alphabet={alphabet}
+                grid={grid}
               />
             </div>
           </div>
