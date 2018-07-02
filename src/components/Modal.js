@@ -14,7 +14,7 @@ class Modal extends Component {
       <CSSTransition
         unmountOnExit
         in={this.props.open}
-        timeout={{ enter: 300, exit: 300 }}
+        timeout={{ enter: 100, exit: 400 }}
         classNames="modal-container"
       >
       { state => (
