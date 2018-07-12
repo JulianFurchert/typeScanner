@@ -31,15 +31,15 @@ export class Provider extends Component {
   }
 
   renderAlphabet = () => {
-    let alphabet = _.mapValues( initialAlphabet, letter => {
-      return letterScanner(
-        letter,
-        this.state.gridJson,
-        this.state.gridSetting
-      );
-    });
-    this.setState({ alphabet })
-    this.setState({ loading: false });
+    // let alphabet = _.mapValues( initialAlphabet, letter => {
+    //   return letterScanner(
+    //     letter,
+    //     this.state.gridJson,
+    //     this.state.gridSetting
+    //   );
+    // });
+    // this.setState({ alphabet })
+    // this.setState({ loading: false });
   }
 
   setPreviewLetter = previewLetter => {
