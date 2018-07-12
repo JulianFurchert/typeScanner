@@ -65,7 +65,11 @@ const RenderLetter = ( WrappedComponent ) => {
 
     arrayToString(arr){
       let string = "";
-      arr.forEach( val => string = string.concat(val.x + ", " + val.y + ", ") )
+      arr.forEach( (val, index) => {
+        if(index % 8 === 0){
+          string = string.concat(val.x + ", " + val.y + ", ")
+        }
+      })
       string = string.slice(0, -2);
       return string;
     }
