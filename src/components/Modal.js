@@ -27,15 +27,15 @@ class Modal extends Component {
       <CSSTransition
         // unmountOnExit
         in={this.props.open}
-        timeout={{ enter: 100, exit: 400 }}
+        timeout={{ enter: 200, exit: 500 }}
         classNames="modal-container"
       >
       { state => (
         <div ref={this.modalContainer} className="Modal-container">
+        {console.log(state)}
         <CSSTransition
-          // unmountOnExit
           in={state === 'entered' || state === 'entering'}
-          timeout={{ enter: 300, exit: 300 }}
+          timeout={{ enter: 500, exit: 300 }}
           classNames="modal"
           onEntered={() => {
             this.updateScrollPosition();

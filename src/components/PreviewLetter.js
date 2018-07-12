@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RenderLetter from './RenderLetter';
 import './PreviewLetter.css'
-import placeholder from '../data/placeholder-grid.jpg';
+import placeholder from '../data/images/placeholder-grid.jpg';
 
 class SelectedLetter extends Component{
   svg = React.createRef();

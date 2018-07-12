@@ -29,10 +29,14 @@
   flex-shrink: 1;
 }
 
-.GridList-item-selected,
+.GridList-item-selected{
+  border-radius: 16px;
+}
+
 .GridList-item:hover {
   border-radius: 16px;
-  transition: all 100ms;
+  box-shadow: 4px 4px 0 2px rgba(0,0,0,0.1);
+  transition: all 150ms;
 }
 
 .GridList-item-title{

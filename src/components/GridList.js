@@ -4,7 +4,7 @@ import Modal from './Modal';
 import classNames from 'classnames';
 import gridList from '../data/gridList.json';
 import gridsPng from '../data/grids-png';
-import './Gridlist.css'
+import './GridList.css'
 
 
 class GridsList extends Component{
