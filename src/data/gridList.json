@@ -61,7 +61,6 @@
   {
     "name": "demiregular tiling k2 = 2 uniform tilings",
     "grids" : [
-      "gi-dt-003",
       "gi-dt-004",
       "gi-dt-006",
       "gi-dt-008",
@@ -70,7 +69,6 @@
       "gi-dt-013",
       "gi-dt-015",
       "gi-dt-016",
-      "gi-dt-017",
       "gi-dt-019",
       "gi-dt-020"
     ]
@@ -109,8 +107,6 @@
       "gi-dt-077",
       "gi-dt-079",
       "gi-dt-080",
-      "gi-dt-084",
-      "gi-dt-086",
       "gi-dt-089",
       "gi-dt-090"
     ]
@@ -119,9 +115,6 @@
     "name": "demiregular tiling k2 = 5 uniform tilings",
     "grids" : [
       "gi-dt-093",
-      "gi-dt-096",
-      "gi-dt-099",
-      "gi-dt-100",
       "gi-dt-101",
       "gi-dt-104",
       "gi-dt-105"
@@ -149,15 +142,12 @@
     "name": "quasiperiodic tiling",
     "grids" : [
       "gi-qt-001",
-      "gi-qt-002a",
       "gi-qt-006",
       "gi-qt-011",
-      "gi-qt-015",
       "gi-qt-020",
       "gi-qt-025",
       "gi-qt-026",
       "gi-qt-028",
-      "gi-qt-035",
       "gi-qt-037",
       "gi-qt-039",
       "gi-qt-040",
