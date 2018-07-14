@@ -40,8 +40,9 @@
 }
 
 .GridList-item-title{
-  transform: translateY(-10px);
-  opacity: 0;
+  transform: translateY(0);
+  /* transform: translateY(-10px); */
+  /* opacity: 0; */
   position: absolute;
   top:4px;
   left: 4px;

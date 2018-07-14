@@ -59,7 +59,8 @@ const RenderLetter = ( WrappedComponent ) => {
         fillOpacity: "0",
         stroke: "black",
         strokeWidth: this.props.weight,
-        strokeLinejoin: "round"
+        strokeLinejoin: "round",
+        strokeLinecap: "square"
       })
     }
 
