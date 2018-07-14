@@ -26,7 +26,10 @@ const createBasicCharakter = () =>{
   return glyphs;
 }
 
-const createFont = (letter, alphabet, fontWeight) => {
+const createFont = (alphabet, fontWeight, grid, gridSetting) => {
+  let {zoom, xPos, yPos} = gridSetting;
+  let fontFamily = `Grid-${zoom}-${xPos}-${yPos}-${fontWeight}`
+  let styleName = `${zoom}-${xPos}-${yPos}-${fontWeight}`;
   let glyphs = createBasicCharakter();
 
   letterNames.forEach( name => {
@@ -42,8 +45,8 @@ const createFont = (letter, alphabet, fontWeight) => {
   });
 
   var font = new opentype.Font({
-    familyName: 'OpenTypeSans',
-    styleName: 'Medium',
+    familyName: fontFamily,
+    styleName: styleName,
     unitsPerEm: 1000,
     ascender: 800,
     descender: -200,

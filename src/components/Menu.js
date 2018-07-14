@@ -49,7 +49,12 @@ class Menu extends Component {
 
   startCreatingFont(){
     this.setState({loadingFont: true}, () =>{});
-    createFont(this.props.letter, this.props.alphabet, this.props.fontWeight);
+    createFont(
+      this.props.alphabet,
+      this.props.fontWeight,
+      this.props.grid,
+      this.props.gridSetting
+    );
     this.setState({loadingFont: false});
   }
 
@@ -89,7 +94,7 @@ class Menu extends Component {
           />
           <Slider
             name="Weight"
-            min={20} max={80}
+            min={20} max={120}
             defaultValue={this.props.fontWeight}
             onChange={this.updateWeight}
           />
