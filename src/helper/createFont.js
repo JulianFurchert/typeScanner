@@ -28,7 +28,7 @@ const createBasicCharakter = () =>{
 
 const createFont = (alphabet, fontWeight, grid, gridSetting) => {
   let {zoom, xPos, yPos} = gridSetting;
-  let fontFamily = `Grid-${zoom}-${xPos}-${yPos}-${fontWeight}`
+  let fontFamily = `grid-${grid}`
   let styleName = `${zoom}-${xPos}-${yPos}-${fontWeight}`;
   let glyphs = createBasicCharakter();
 
