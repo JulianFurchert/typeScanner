@@ -2,7 +2,6 @@ let lastIndex;
 const baseScale = 3;
 
 const letterScan = (letterPoints, gridPoints, settings) => {
-  console.log(gridPoints);
   let newLetterPoints = [];
   gridPoints = transformGridPoints(gridPoints, settings);
 
