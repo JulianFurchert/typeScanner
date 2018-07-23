@@ -13,8 +13,9 @@ class Letter extends Component {
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
-    this.setHeight();
     window.addEventListener("resize", this.setHeight.bind(this));
+    this.setHeight();
+    console.log("componentDidMount_End");
   }
 
   componentWillUnmount() {
@@ -23,6 +24,7 @@ class Letter extends Component {
 
   setHeight(){
     let width = this.container.current.getBoundingClientRect().width;
+    console.log(this.container.current);
     this.container.current.style.height = width + "px";
   }
 
