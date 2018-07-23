@@ -1,11 +1,35 @@
 
 .Letter-container{
-  width: 12.5%;
+  width: 33.3%;
   height: 80px;
   border: 1px solid #ddd;
   margin-right: -1px;
   margin-bottom: -1px;
   padding: 8px;
+}
+
+@media (min-width: 576px){
+  .Letter-container{
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 768px){
+  .Letter-container{
+    width: 25%;
+  }
+}
+
+@media (min-width: 992px){
+  .Letter-container{
+    width: 12.5%;
+  }
+}
+
+@media (min-width: 1281px){
+  .Letter-container{
+    width: 10%;
+  }
 }
 
 .Letter-inner{
