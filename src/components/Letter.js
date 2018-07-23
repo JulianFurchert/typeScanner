@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RenderLetter from './RenderLetter';
+import placeholder from '../data/images/placeholder_square.jpg';
+
 import './Letter.css';
 
 class Letter extends Component {
@@ -13,22 +15,12 @@ class Letter extends Component {
 
   componentDidMount(){
     this.props.initLetter(this.svg.current);
-    window.addEventListener("resize", this.setHeight.bind(this));
-    setTimeout(this.setHeight(), 500);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.setHeight.bind(this));
-  }
-
-  setHeight(){
-    let width = this.container.current.getBoundingClientRect().width;
-    this.container.current.style.height = width + "px";
-  }
 
 
   handleClick(){
-    this.props.setPreviewLetter(this.props.letterName);
+    // this.props.setPreviewLetter(this.props.letterName);
   }
 
   render(){
@@ -36,6 +28,7 @@ class Letter extends Component {
       <div  ref={this.container}  className="Letter-container" >
         <div className="Letter-inner">
           <svg onClick={this.handleClick}  ref={this.svg}  className="Letter"/>
+          <img alt="placeholder" className="Letter-placeholder" src={placeholder} />
         </div>
       </div>
     )
