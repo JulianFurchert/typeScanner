@@ -15,6 +15,10 @@ class GridsList extends Component{
     this.modal = React.createRef();
   }
 
+  componentDidMount(){
+    console.log(gridList);
+  }
+
   handleClick(grid){
     this.props.setGrid(grid);
     this.props.close();
