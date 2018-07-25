@@ -1,2 +1,0 @@
-# Redirect default Netlify subdomain to primary domain
-http://bachelorthesis.netlify.com/* http://bachelorthesis.julianfurchert.com/:splat 301!
