@@ -4,3 +4,9 @@
   top: 0;
   left: 0;
 }
+
+.Grid path{
+  vector-effect: non-scaling-stroke;
+  stroke-width: 0.5px;
+  stroke: rgb(94, 94, 94);
+}

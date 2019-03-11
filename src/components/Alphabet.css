@@ -1,7 +1,12 @@
-.Alphabet {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: stretch;
-  align-content: flex-start;
+.Alphabet-Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  margin-bottom: -2px;
+  margin-right: -1px;
+}
+
+.Alphabet-Grid-Item {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+
 }

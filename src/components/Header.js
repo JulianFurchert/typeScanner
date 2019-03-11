@@ -11,7 +11,7 @@ const Header = props => {
         <div>{`yPos: ${props.gridSetting.yPos}`}</div>
         <div>{`weight: ${props.weight}`}</div>
       </div>
-      <div className="Header-about">About</div>
+      <div className="Header-about">Information</div>
     </div>
   )
 }

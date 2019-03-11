@@ -15,10 +15,6 @@ class GridsList extends Component{
     this.modal = React.createRef();
   }
 
-  componentDidMount(){
-    console.log(gridList);
-  }
-
   handleClick(grid){
     this.props.setGrid(grid);
     this.props.close();
@@ -31,10 +27,10 @@ class GridsList extends Component{
       });
       return (
         <div key={grid} className={style} id={grid} >
-          <div className="GridList-item-title">{grid}</div>
-          <LazyLoad height={200} offsetVertical={600}>
+          <LazyLoad offsetVertical={600}>
             <img onClick={ () => this.handleClick(grid)} alt={grid} src={gridsPng[grid]} />
           </LazyLoad>
+          <div className="GridList-item-title">{grid}</div>
         </div>
       )
     })
@@ -43,13 +39,13 @@ class GridsList extends Component{
   listCategories(){
     return gridList.map( (categorie, index) => {
       return (
-        <div key={categorie.name + " " + index} className="GridList-categorie" >
-          <div className="GridList-categorie-title">
-            <div>{categorie.name}</div>
-            <div>{` (${categorie.grids.length})`}</div>
+        <div key={categorie.name + index} className="GridList-categorie">
+          <div className="GridList-categorie-header" >
+            <div className="GridList-categorie-title">{categorie.name}</div>
           </div>
           {this.listItems(categorie.grids)}
         </div>
+
       )
     })
   }
@@ -63,7 +59,7 @@ class GridsList extends Component{
         close={this.props.close}
         scrollTo={this.props.selectedGrid}
       >
-        <div ref={this.body} className="GridList-body">
+        <div className="GridList">
           {this.listCategories()}
         </div>
       </Modal>

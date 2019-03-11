@@ -106,7 +106,7 @@ class Menu extends Component {
           />
         </div>
         <Button
-          name="Export"
+          name="create Font"
           loading={this.state.loadingFont}
           onClick={this.startCreatingFont}
         />
