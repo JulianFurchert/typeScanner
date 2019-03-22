@@ -8,7 +8,7 @@ import initialAlphabet from "./data/alphabet.json"
 const Context = React.createContext();
 
 const ax = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? 'https://typescanner.com/' : 'http://localhost:3000'
+  baseURL: process.env.NODE_ENV === 'production' ? 'https://typescanner.com/' : 'http://192.168.178.20:3000/'
 })
 
 export class Provider extends Component {

@@ -14,6 +14,7 @@ class Menu extends Component {
     this.state = {
       gridListOpen: false,
       loadingFont: false,
+      values: 1,
     }
     this.updateGridSetting = this.updateGridSetting.bind(this);
     this.updateWeight = this.updateWeight.bind(this);
@@ -57,6 +58,7 @@ class Menu extends Component {
     );
     this.setState({loadingFont: false});
   }
+
 
   render(){
     return (
