@@ -29,17 +29,17 @@ const RenderLetter = ( WrappedComponent ) => {
     }
 
     animateLetter(letter){
-      if(this.props.letterName === "A"){
-        let data = letter.map(path => {
-          const newPoints = [];
-          path.forEach((point,index) => {
-            if(index % 2 === 0){
-              newPoints.push([point.x, point.y])
-            }
-          });
-          return newPoints;
-        })
-      }
+      // if(this.props.letterName === "A"){
+      //   let data = letter.map(path => {
+      //     const newPoints = [];
+      //     path.forEach((point,index) => {
+      //       if(index % 2 === 0){
+      //         newPoints.push([point.x, point.y])
+      //       }
+      //     });
+      //     return newPoints;
+      //   })
+      // }
       let animateTime = this.props.animateTime ? this.props.animateTime : 0;
       letter.forEach( (path, index) => {
         let letterPoints = this.arrayToString(path);

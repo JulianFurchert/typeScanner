@@ -1,8 +1,8 @@
-import React, {Component, useEffect} from "react";
+import React, {Component } from "react";
 import _ from 'lodash';
 import axios from'axios';
 import letterScanner from "./helper/letterScanner"
-import { useSpring, useSprings } from 'react-spring'
+import { useSprings } from 'react-spring'
 import initialAlphabet from "./data/alphabet.json"
 
 
