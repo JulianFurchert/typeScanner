@@ -26,7 +26,9 @@ class Grid extends Component {
 
   componentDidMount(){
     this.initSnap(this.svg.current);
-    this.props.setGrid("gi-og-005");
+    // this.props.setGrid("gi-og-006");
+    this.props.setGrid("gi-va-025");
+    // this.props.setGrid("gi-og-006");
   }
 
   initSnap(element){

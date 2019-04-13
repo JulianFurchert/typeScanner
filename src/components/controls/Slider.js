@@ -8,7 +8,7 @@ import './Slider.css'
 
 const SliderComponent = (props) => {
   return(
-    <div className="Slider-container control">
+    <div className={`Slider-container control ${props.active ? 'active': ''}`}>
       <p className="Slider-name">{props.name}</p>
       <Slider
         handleStyle={{
@@ -26,11 +26,12 @@ const SliderComponent = (props) => {
         railStyle={{ backgroundColor: 'transparent' }}
         trackStyle={{ backgroundColor: 'transparent' }}
         className="Slider"
+        step={0.1}
         onAfterChange={props.onAfterChange}
         onBeforeChange={props.onBeforeChange}
         onChange={value => props.onChange(props.name, value)}
         min={props.min} max={props.max}
-        defaultValue={props.defaultValue}
+        value={props.defaultValue}
       />
     </div>
   )

@@ -39,7 +39,6 @@ const RenderLetter = ( WrappedComponent ) => {
           });
           return newPoints;
         })
-        console.log(data)
       }
       let animateTime = this.props.animateTime ? this.props.animateTime : 0;
       letter.forEach( (path, index) => {

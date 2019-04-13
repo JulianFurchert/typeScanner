@@ -12,3 +12,7 @@
 .control:hover {
   background-color: #ddd;
 }
+
+.control.active {
+  background-color: #ddd;
+}

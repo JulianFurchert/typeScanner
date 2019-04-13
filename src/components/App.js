@@ -12,7 +12,7 @@ import './App.css';
 const App = () => {
   return (
     <Consumer>
-      {({ alphabet, renderAlphabet, resetAlphabet, previewLetter, setPreviewLetter, fontWeight, setFontWeight, grid, setGrid, gridSetting, setGridSetting }) => (
+      {({ alphabet, renderAlphabet, resetAlphabet, previewLetter, setPreviewLetter, fontWeight, setFontWeight, grid, setGrid, gridSetting, setGridSetting, currentMenu }) => (
         <div className="App">
           <Header weight={fontWeight} grid={grid} gridSetting={gridSetting}  />
           <div className= "App-main">
@@ -26,6 +26,7 @@ const App = () => {
           </div>
           <div className= "App-menu">
             <Menu
+              currentMenu={currentMenu}
               fontWeight={fontWeight}
               gridSetting={gridSetting}
               setGrid={setGrid}

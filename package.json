@@ -34,7 +34,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "opentype.js": "^0.10.0"
+    "opentype.js": "^0.10.0",
+    "react-spring": "^8.0.19"
   },
   "browserslist": [
     ">0.2%",

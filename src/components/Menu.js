@@ -77,6 +77,7 @@ class Menu extends Component {
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
+            active={this.props.currentMenu === "zoom"}
           />
           <Slider
             name="xPos"
@@ -85,6 +86,7 @@ class Menu extends Component {
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
+            active={this.props.currentMenu === "xPos"}
           />
           <Slider
             name="yPos"
@@ -93,12 +95,14 @@ class Menu extends Component {
             onBeforeChange={this.props.resetAlphabet}
             onChange={this.updateGridSetting}
             onAfterChange={this.props.renderAlphabet}
+            active={this.props.currentMenu === "yPos"}
           />
           <Slider
             name="Weight"
             min={20} max={120}
             defaultValue={this.props.fontWeight}
             onChange={this.updateWeight}
+            active={this.props.currentMenu === "fontWeight"}
           />
           <Button
             large
