@@ -14,9 +14,9 @@ const ax = axios.create({
 
 const start = {
 	gridSetting: {
-		zoom: 5,
-	  xPos: 10,
-	  yPos: -20,
+		zoom: 8,
+	  xPos: 2.51,
+	  yPos: -3.8,
 	},
   fontWeight: 40
 }
@@ -24,44 +24,103 @@ const start = {
 const animation = [
   {
     from: { zoom: start.gridSetting.zoom },
-    zoom: 6,
+    zoom: 5,
   },
   {
     from: { xPos: start.gridSetting.xPos },
-    xPos: -13,
+    xPos: 6,
   },
   {
     from: { yPos: start.gridSetting.yPos },
-    yPos: 5,
+    yPos: 0,
   },
-	// Next
+	// NEXT
+	{
+    from: { zoom: 5 },
+    zoom: 6,
+  },
+  {
+    from: { xPos: 6 },
+    xPos: 0,
+  },
+	// NEXT
 	{
     from: { zoom: 6 },
-    zoom: 7,
+    zoom: 8,
   },
   {
-    from: { xPos: -13 },
-    xPos: 8,
+    from: { xPos: 0 },
+    xPos: 9,
   },
   {
-    from: { yPos: 5 },
-    yPos: -20,
+    from: { fontWeight: 40 },
+    fontWeight: 80,
   },
-	// Next
-  {
-    from: { xPos: 8 },
-    xPos: 15,
-  },
-	// Next
+	// NEXT
 	{
-    from: { zoom: 7 },
-    zoom: 9,
+    from: { zoom: 8 },
+    zoom: 15,
   },
   {
-    from: { xPos: 15 },
-    xPos: 11,
+    from: { xPos: 9 },
+    xPos: 17,
   },
+	{
+    from: { fontWeight: 80 },
+    fontWeight: 40,
+  }
 ]
+
+// const start = {
+// 	gridSetting: {
+// 		zoom: 5,
+// 	  xPos: 10,
+// 	  yPos: -20,
+// 	},
+//   fontWeight: 40
+// }
+
+// const animation = [
+//   {
+//     from: { zoom: start.gridSetting.zoom },
+//     zoom: 6,
+//   },
+//   {
+//     from: { xPos: start.gridSetting.xPos },
+//     xPos: -13,
+//   },
+//   {
+//     from: { yPos: start.gridSetting.yPos },
+//     yPos: 5,
+//   },
+// 	// Next
+// 	{
+//     from: { zoom: 6 },
+//     zoom: 7,
+//   },
+//   {
+//     from: { xPos: -13 },
+//     xPos: 8,
+//   },
+//   {
+//     from: { yPos: 5 },
+//     yPos: -20,
+//   },
+// 	// Next
+//   {
+//     from: { xPos: 8 },
+//     xPos: 15,
+//   },
+// 	// Next
+// 	{
+//     from: { zoom: 7 },
+//     zoom: 9,
+//   },
+//   {
+//     from: { xPos: 15 },
+//     xPos: 11,
+//   },
+// ]
 
 export class Provider extends Component {
   state = {
@@ -129,9 +188,12 @@ export class Provider extends Component {
         gridSetting: {...start.gridSetting},
         fontWeight: start.fontWeight
       },()=>{
-        this.renderAlphabet();
+        this.resetAlphabet();
       })
     }, 4000);
+    setTimeout(() => {
+        this.renderAlphabet();
+    }, 6000);
   }
 
   render(){
@@ -161,7 +223,7 @@ export class Provider extends Component {
   }
 }
 
-const config = { duration: 1200 }
+const config = { duration: 800 }
 
 const ControlledSettings = ({
   resetAlphabet,
@@ -178,7 +240,7 @@ const ControlledSettings = ({
     if(key === 'fontWeight'){
       return {
         ...animation[index],
-        delay: 8000 + (2600 * index),
+        delay: 8000 + (1600 * index),
         onStart: () => setCurrentMenu(key),
         onFrame: values => setFontWeight(values.fontWeight),
         onRest: () => setCurrentMenu(''),
@@ -188,7 +250,7 @@ const ControlledSettings = ({
 
     return {
       ...animation[index],
-      delay: 8000 + (2600 * index),
+      delay: 8000 + (1600 * index),
       onStart: (prop)=> {
         resetAlphabet();
         setCurrentMenu(key);

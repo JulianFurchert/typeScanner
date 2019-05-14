@@ -7,6 +7,6 @@
 
 .Grid path{
   vector-effect: non-scaling-stroke;
-  stroke-width: 0.5px;
-  stroke: rgb(94, 94, 94);
+  stroke-width: 1px;
+  stroke: #bbbbbb;
 }
