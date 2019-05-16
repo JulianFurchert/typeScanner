@@ -9,7 +9,18 @@
   -webkit-overflow-scrolling: touch;
 }
 
-
+.GridList-header{
+  margin: 0 24px 16px;
+  padding: 12px 6px;
+  height: 52px;
+  width: 100%;
+  display: flex;
+  background-color: #f7f7f7;
+  align-items: flex-end;
+  font-size: 16px;
+  font-size: 13px;
+  color: #7b7b7b;
+}
 
 .GridList-categorie{
   margin: 0 24px 16px;

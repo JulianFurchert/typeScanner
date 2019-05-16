@@ -60,6 +60,9 @@ class GridsList extends Component{
         scrollTo={this.props.selectedGrid}
       >
         <div className="GridList">
+          <header className="GridList-header">
+            <p>The grids are from the fantastic book "Grind Index" by <a href="http://www.carstennicolai.de/">Carsten Nicolai</a></p>
+          </header>
           {this.listCategories()}
         </div>
       </Modal>
