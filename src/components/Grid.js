@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Snap from 'snapsvg-cjs';
 import './Grid.css';
-import gridsSvg from "../data/grids-svg";
 const baseScale = 3;
 
 
@@ -38,8 +37,7 @@ class Grid extends Component {
   loadGrid(grid){
     if(this.grid) this.grid.remove();
     this.grid = this.snap.group();
-
-    Snap.load(gridsSvg[grid], data => {
+    Snap.load(`/grids-svg/${grid}.svg`, data => {
       this.grid.append(data);
       this.grid.attr({
         stroke: "#383838",
