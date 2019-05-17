@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'rc-slider';
-import sliderIcon from '../../data/icons/icon_slider.svg';
+import sliderIcon from '../../icons/icon_slider.svg';
 
 import 'rc-slider/assets/index.css';
 import './control.css'

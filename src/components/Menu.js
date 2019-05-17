@@ -3,7 +3,7 @@ import Slider from './controls/Slider';
 import Button from './controls/Button';
 import GridList from './GridList';
 import createFont from '../helper/createFont';
-import openIcon from '../data/icons/icon_select.svg'
+import openIcon from '../icons/icon_select.svg'
 import './Menu.css';
 
 
