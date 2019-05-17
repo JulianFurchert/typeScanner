@@ -3,8 +3,6 @@ import _ from 'lodash';
 import axios from'axios';
 import letterScanner from "./helper/letterScanner"
 import initialAlphabet from "./data/alphabet.json"
-import * as firebase from 'firebase'
-import 'firebase/firestore';
 
 
 const Context = React.createContext();
@@ -12,21 +10,6 @@ const Context = React.createContext();
 const ax = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://typescanner.com/' : 'http://localhost:3000/'
 })
-
-// var firebaseConfig = {
-//   apiKey: "AIzaSyAntoUmv-Fpq1JJibKiQACvkbJTPcFULKU",
-//   authDomain: "typescanner.firebaseapp.com",
-//   databaseURL: "https://typescanner.firebaseio.com",
-//   projectId: "typescanner",
-//   storageBucket: "typescanner.appspot.com",
-//   messagingSenderId: "17501300457",
-//   appId: "1:17501300457:web:1682613478fcb794"
-// };
-
-// firebase.initializeApp(firebaseConfig);
-// const storage = firebase.storage()
-// const storageRef = storage.ref()
-
 
 export class Provider extends Component {
   state = {
@@ -66,19 +49,6 @@ export class Provider extends Component {
   setGrid = grid => {
     this.setState({ grid });
     this.setState({ loading: true });
-
-    // storageRef.child(`grids-json/${grid}.json`).getDownloadURL().then(function(url) {
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.responseType = 'blob';
-    //   xhr.onload = function(event) {
-    //     var blob = xhr.response;
-    //   };
-    //   xhr.open('GET', url);
-    //   xhr.send();
-    // }).catch(function(error) {
-    //   console.log(error)
-    // });
-
     ax.get(`grids-json/${grid}.json`)
       .then(function (response) {
         let gridJson = response.data;
