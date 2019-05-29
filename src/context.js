@@ -2,7 +2,7 @@ import React, {Component } from "react";
 import _ from 'lodash';
 import axios from'axios';
 import letterScanner from "./helper/letterScanner"
-import { useSprings } from 'react-spring'
+// import { useSprings } from 'react-spring'
 import initialAlphabet from "./data/alphabet.json"
 
 
@@ -14,62 +14,59 @@ const ax = axios.create({
 
 const start = {
 	gridSetting: {
-		zoom: 8,
-	  xPos: 2.51,
-	  yPos: -3.8,
+		zoom: 5,
+	  xPos: 6,
+	  yPos: 0,
 	},
   fontWeight: 40
 }
 
-const animation = [
-  {
-    from: { zoom: start.gridSetting.zoom },
-    zoom: 5,
-  },
-  {
-    from: { xPos: start.gridSetting.xPos },
-    xPos: 6,
-  },
-  {
-    from: { yPos: start.gridSetting.yPos },
-    yPos: 0,
-  },
-	// NEXT
-	{
-    from: { zoom: 5 },
-    zoom: 6,
-  },
-  {
-    from: { xPos: 6 },
-    xPos: 0,
-  },
-	// NEXT
-	{
-    from: { zoom: 6 },
-    zoom: 8,
-  },
-  {
-    from: { xPos: 0 },
-    xPos: 9,
-  },
-  {
-    from: { fontWeight: 40 },
-    fontWeight: 80,
-  },
-	// NEXT
-	{
-    from: { zoom: 8 },
-    zoom: 15,
-  },
-  {
-    from: { xPos: 9 },
-    xPos: 17,
-  },
-	{
-    from: { fontWeight: 80 },
-    fontWeight: 40,
-  }
-]
+
+// const start = {
+// 	gridSetting: {
+// 		zoom: 8,
+// 	  xPos: 2.51,
+// 	  yPos: -3.8,
+// 	},
+//   fontWeight: 40
+// }
+
+// const animation = [
+//   {
+//     from: { zoom: start.gridSetting.zoom },
+//     zoom: 6,
+//   },
+//   {
+//     from: { xPos: start.gridSetting.xPos },
+//     xPos: 0,
+//   },
+// 	// NEXT
+// 	{
+//     from: { zoom: 6 },
+//     zoom: 8,
+//   },
+//   {
+//     from: { xPos: 0 },
+//     xPos: 9,
+//   },
+//   {
+//     from: { fontWeight: 40 },
+//     fontWeight: 80,
+//   },
+// 	// NEXT
+// 	{
+//     from: { zoom: 8 },
+//     zoom: 15,
+//   },
+//   {
+//     from: { xPos: 9 },
+//     xPos: 17,
+//   },
+// 	{
+//     from: { fontWeight: 80 },
+//     fontWeight: 40,
+//   }
+// ]
 
 // const start = {
 // 	gridSetting: {
@@ -234,37 +231,37 @@ const ControlledSettings = ({
   children
 }) => {
 
-  useSprings(animation.length, index => {
-    let key = Object.keys(animation[index])[1];
+  // useSprings(animation.length, index => {
+  //   let key = Object.keys(animation[index])[1];
 
-    if(key === 'fontWeight'){
-      return {
-        ...animation[index],
-        delay: 8000 + (1600 * index),
-        onStart: () => setCurrentMenu(key),
-        onFrame: values => setFontWeight(values.fontWeight),
-        onRest: () => setCurrentMenu(''),
-        config
-      }
-    }
+  //   if(key === 'fontWeight'){
+  //     return {
+  //       ...animation[index],
+  //       delay: 8000 + (1600 * index),
+  //       onStart: () => setCurrentMenu(key),
+  //       onFrame: values => setFontWeight(values.fontWeight),
+  //       onRest: () => setCurrentMenu(''),
+  //       config
+  //     }
+  //   }
 
-    return {
-      ...animation[index],
-      delay: 8000 + (1600 * index),
-      onStart: (prop)=> {
-        resetAlphabet();
-        setCurrentMenu(key);
-      },
-      onFrame: (values) => {
-        setGridSetting({...values})
-      },
-      onRest: ()=> {
-        renderAlphabet();
-        setCurrentMenu('');
-      },
-      config
-    }
-  })
+  //   return {
+  //     ...animation[index],
+  //     delay: 8000 + (1600 * index),
+  //     onStart: (prop)=> {
+  //       resetAlphabet();
+  //       setCurrentMenu(key);
+  //     },
+  //     onFrame: (values) => {
+  //       setGridSetting({...values})
+  //     },
+  //     onRest: ()=> {
+  //       renderAlphabet();
+  //       setCurrentMenu('');
+  //     },
+  //     config
+  //   }
+  // })
 
   return <>{children}</>
 }
