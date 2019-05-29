@@ -4,7 +4,7 @@
   justify-content:center;
   cursor: pointer;
   width: 120px;
-  background-color: white;
+  background-color: #121212;
 }
 
 .Button-space-between {
@@ -31,6 +31,7 @@
 }
 
 .Button-name{
+  color: white;
   text-align: center;
 }
 
@@ -56,13 +57,13 @@
   content: " ";
   width: 12px;
   height: 41px;
-  background-color: white;
+  background-color: #121212;
   position: absolute;
   animation: loading 1.2s linear infinite;
 }
 
 .Button-loading:hover{
-  background-color: white;
+  background-color: #121212;
 }
 
 @keyframes loading {

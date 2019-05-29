@@ -12,24 +12,24 @@ const ax = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'https://typescanner.com/' : 'http://192.168.178.20:3000/'
 })
 
-const start = {
-	gridSetting: {
-		zoom: 5,
-	  xPos: 6,
-	  yPos: 0,
-	},
-  fontWeight: 40
-}
-
-
 // const start = {
 // 	gridSetting: {
-// 		zoom: 8,
-// 	  xPos: 2.51,
-// 	  yPos: -3.8,
+// 		zoom: 5,
+// 	  xPos: 6,
+// 	  yPos: 0,
 // 	},
 //   fontWeight: 40
 // }
+
+
+const start = {
+	gridSetting: {
+		zoom: 8,
+	  xPos: 2.51,
+	  yPos: -3.8,
+	},
+  fontWeight: 40
+}
 
 // const animation = [
 //   {
@@ -179,18 +179,18 @@ export class Provider extends Component {
   }
 
   componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        currentMenu: '',
-        gridSetting: {...start.gridSetting},
-        fontWeight: start.fontWeight
-      },()=>{
-        this.resetAlphabet();
-      })
-    }, 4000);
-    setTimeout(() => {
-        this.renderAlphabet();
-    }, 6000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     currentMenu: '',
+    //     gridSetting: {...start.gridSetting},
+    //     fontWeight: start.fontWeight
+    //   },()=>{
+    //     this.resetAlphabet();
+    //   })
+    // }, 4000);
+    // setTimeout(() => {
+    //     this.renderAlphabet();
+    // }, 6000);
   }
 
   render(){

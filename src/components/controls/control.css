@@ -2,17 +2,17 @@
   height: 32px;
   padding: 8px;
   margin: 8px;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #121212;
+  border: 1px solid #686868;
   border-radius: 16px;
   font-size: 14px;
   flex-shrink: 1;
 }
 
 .control:hover {
-  background-color: #ddd;
+  background-color: #686868;
 }
 
 .control.active {
-  background-color: #ddd;
+  background-color: #686868;
 }

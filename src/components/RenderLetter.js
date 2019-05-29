@@ -66,9 +66,9 @@ const RenderLetter = ( WrappedComponent ) => {
 
       this.snap.attr({
         viewBox: this.props.viewbox,
-        fill: "black",
+        fill: "#00B693",
         fillOpacity: "0",
-        stroke: "black",
+        stroke: "#00B693",
         strokeWidth: this.props.weight,
         strokeLinejoin: "round",
         strokeLinecap: "square"
