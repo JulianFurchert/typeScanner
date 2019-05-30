@@ -109,12 +109,14 @@ class Menu extends Component {
             name="Grid"
             icon={openIcon}
             onClick={this.openGridList}
+            active={this.props.currentMenu === "openGrid"}
           />
         </div>
         <Button
           name="create Font"
           loading={this.state.loadingFont}
           onClick={this.startCreatingFont}
+          active={this.props.currentMenu === "export"}
         />
       </div>
     )

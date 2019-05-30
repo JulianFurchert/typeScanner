@@ -5,13 +5,14 @@ import './control.css'
 
 class Button extends Component {
   render(){
-    let {name, icon, loading, large, circle} = this.props;
+    let {name, icon, loading, large, circle, active} = this.props;
     let btnClass = classNames('Button control',{
       'Button-space-between': icon && name,
       'Button-large': large,
       'Button-circle': circle,
       'Button-circle-large': circle && large,
       'Button-loading': loading,
+      'Button-active': active,
     });
     return (
       <div onClick={this.props.onClick} className={btnClass}>
