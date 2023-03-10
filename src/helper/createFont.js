@@ -35,6 +35,8 @@ const createFont = (alphabet, fontWeight, grid, gridSetting) => {
   letterNames.forEach( name => {
     let {data, width} = createSvgPath(alphabet[name], fontWeight);
     let letterPath = svgToLetterPath(data);
+    let lowercaseName = name.toLowerCase();
+
     let glyph = new opentype.Glyph({
       name: name,
       unicode: name.charCodeAt(0),
@@ -42,6 +44,14 @@ const createFont = (alphabet, fontWeight, grid, gridSetting) => {
       path: letterPath
     });
     glyphs.push(glyph);
+    
+    let glyphLowercase = new opentype.Glyph({
+      name: lowercaseName,
+      unicode: lowercaseName.charCodeAt(0),
+      advanceWidth: parseInt(width, 10) + spacing*2,
+      path: letterPath
+    });
+    glyphs.push(glyphLowercase);
   });
 
   var font = new opentype.Font({
